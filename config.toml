@@ -1,7 +1,7 @@
 languageCode = "en-uk"
 title = "System-on-Chip design and experimentation - labs"
 
-baseurl = "https://kuleuven-diepenbeek.github.io/soc-lab/"
+baseurl = "https://kuleuven-diepenbeek.github.io/course_soc-lab/"
 # fix for subdir baseurl, see https://discourse.gohugo.io/t/issue-when-baseurl-have-subdirectory/4088/7
 RelativeURLs=true
 CanonifyURLs=true
@@ -13,7 +13,7 @@ enableRobotsTXT = true
 pygmentsCodefences = true
 
 # for .Lastmod to work with .GitInfo: --enableGitInfo https://gohugo.io/variables/git/
-#enableGitInfo = true
+enableGitInfo = true
 
 # for new Hugo 0.6x, markup changed to CommonMark.
 [markup]
