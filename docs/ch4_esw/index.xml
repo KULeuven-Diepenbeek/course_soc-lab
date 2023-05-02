@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>4: Embedded Software on System-on-Chip design and experimentation - labs</title>
-    <link>https://kuleuven-diepenbeek.github.io/soc-lab/ch4_esw/</link>
+    <link>https://kuleuven-diepenbeek.github.io/course_soc-lab/ch4_esw/</link>
     <description>Recent content in 4: Embedded Software on System-on-Chip design and experimentation - labs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
     <managingEditor>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Nele Mentens and Jo Vliegen)</managingEditor>
-    <webMaster>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Nele Mentens and Jo Vliegen)</webMaster><atom:link href="https://kuleuven-diepenbeek.github.io/soc-lab/ch4_esw/index.xml" rel="self" type="application/rss+xml" />
+    <webMaster>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Nele Mentens and Jo Vliegen)</webMaster><atom:link href="https://kuleuven-diepenbeek.github.io/course_soc-lab/ch4_esw/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Driver</title>
-      <link>https://kuleuven-diepenbeek.github.io/soc-lab/ch4_esw/1_driver/</link>
+      <link>https://kuleuven-diepenbeek.github.io/course_soc-lab/ch4_esw/1_driver/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Nele Mentens and Jo Vliegen)</author>
-      <guid>https://kuleuven-diepenbeek.github.io/soc-lab/ch4_esw/1_driver/</guid>
+      <guid>https://kuleuven-diepenbeek.github.io/course_soc-lab/ch4_esw/1_driver/</guid>
       <description>In Chapter 2 - Embedded software some basics on the embedded software has been given. A bit more general information is explained using the communicator as example.
 Hardware mapping As chip designer for the communicator, you are the one that knows how you wired up the Memory-Mapped IO. In this example the mapping below is assumed.
  MMIO map   The image above shows the use of 4 registers.</description>

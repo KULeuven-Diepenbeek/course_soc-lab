@@ -2,28 +2,28 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>2: Put a SOC in it on System-on-Chip design and experimentation - labs</title>
-    <link>https://kuleuven-diepenbeek.github.io/soc-lab/ch2_soc/</link>
+    <link>https://kuleuven-diepenbeek.github.io/course_soc-lab/ch2_soc/</link>
     <description>Recent content in 2: Put a SOC in it on System-on-Chip design and experimentation - labs</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-uk</language>
     <managingEditor>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Nele Mentens and Jo Vliegen)</managingEditor>
-    <webMaster>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Nele Mentens and Jo Vliegen)</webMaster><atom:link href="https://kuleuven-diepenbeek.github.io/soc-lab/ch2_soc/index.xml" rel="self" type="application/rss+xml" />
+    <webMaster>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Nele Mentens and Jo Vliegen)</webMaster><atom:link href="https://kuleuven-diepenbeek.github.io/course_soc-lab/ch2_soc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Put a SoC in it</title>
-      <link>https://kuleuven-diepenbeek.github.io/soc-lab/ch2_soc/1_soc/</link>
+      <link>https://kuleuven-diepenbeek.github.io/course_soc-lab/ch2_soc/1_soc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Nele Mentens and Jo Vliegen)</author>
-      <guid>https://kuleuven-diepenbeek.github.io/soc-lab/ch2_soc/1_soc/</guid>
+      <guid>https://kuleuven-diepenbeek.github.io/course_soc-lab/ch2_soc/1_soc/</guid>
       <description>Today&amp;rsquo;s designs often feature a System-on-Chip (SOC). This is a buzz word which means that a chip contains more than only a processing core. Typically there are more components like, for example: a timer, some memory, and a UART.
 The PYNQ Z2 board contains a ZYNQ FPGA. This type of FPGAs is a hybrid form which combines the traditional reconfigurable fabric of an FPGA, with a dedicated processor. In the case of the PYNQ Z2 the dedicated processor is an ARM Cortex A9.</description>
     </item>
     
     <item>
       <title>Embedded software</title>
-      <link>https://kuleuven-diepenbeek.github.io/soc-lab/ch2_soc/2_emb_software/</link>
+      <link>https://kuleuven-diepenbeek.github.io/course_soc-lab/ch2_soc/2_emb_software/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Nele Mentens and Jo Vliegen)</author>
-      <guid>https://kuleuven-diepenbeek.github.io/soc-lab/ch2_soc/2_emb_software/</guid>
+      <guid>https://kuleuven-diepenbeek.github.io/course_soc-lab/ch2_soc/2_emb_software/</guid>
       <description>Software The Xilinx software includes an integrated development environment (IDE). Before this can be used the generated hardware needs to be exported to an .xsa file. This file can be used in the Vitis IDE, which can be launched from the start menu or vivado. It is recommended to use a new Vitis workspace for each new software project.
 When creating a Vitis project it is required to use a different name than the name of the .</description>
     </item>
