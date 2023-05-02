@@ -1,0 +1,1139 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="description" content="">
+
+
+    <link rel="icon" href="../../images/favicon.png" type="image/png">
+
+    <title>Driver :: System-on-Chip design and experimentation - labs</title>
+
+    
+    <link href="../../css/nucleus.css?1683015354" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1683015354" rel="stylesheet">
+    <link href="../../css/hybrid.css?1683015354" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1683015354" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1683015354" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1683015354" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1683015354" rel="stylesheet">
+    <link href="../../css/theme.css?1683015354" rel="stylesheet">
+    <link href="../../css/tabs.css?1683015354" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1683015354" rel="stylesheet">
+    
+    <link href="../../css/theme-kul.css?1683015354" rel="stylesheet">
+    
+    
+
+    <script src="../../js/jquery-3.3.1.min.js?1683015354"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+        :not(pre) > code + span.copy-to-clipboard {
+            display: none;
+        }
+      
+    </style>
+      <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+
+<script>
+window.MathJax = {
+  chtml: {
+    scale: 2,                      
+    minScale: .5,                  
+    matchFontHeight: true,         
+    mtextInheritFont: false,       
+    merrorInheritFont: true,       
+    mathmlSpacing: false,          
+    skipAttributes: {},            
+    exFactor: .5,                  
+    displayAlign: 'center',        
+    displayIndent: '0'             
+  }
+};
+</script>
+
+<script src=../../js/osc.js></script>
+  </head>
+  <body class="" data-url="../../ch4_esw/1_driver/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a href="https://www.kuleuven.be/kuleuven/" target="_blank">
+	<img src="../../img/style/kul.png" alt="KU Leuven" /><br/>
+</a>
+<a href="https://www.uhasselt.be/" target="_blank">
+	<img src="../../img/style/uhasselt.svg" alt="UHasselt" id="uhlogo" />
+</a>
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="../../js/lunr.min.js?1683015354"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1683015354"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/soc-lab\/";
+    
+</script>
+<script type="text/javascript" src="../../js/search.js?1683015354"></script>
+
+    
+  </div>
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ch0_intro/" title="0: Introduction to the labs" class="dd-item
+        
+        
+        
+        ">
+      <a href="../../ch0_intro/">
+          0: Introduction to the labs
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ch1_light/" title="1: Let there be light" class="dd-item
+        
+        
+        
+        ">
+      <a href="../../ch1_light/">
+          1: Let there be light
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ch1_light/1_light/" title="Let there be light" class="dd-item ">
+        <a href="../../ch1_light/1_light/">
+        Let there be light
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ch1_light/2_prescaling/" title="Pre-scaling" class="dd-item ">
+        <a href="../../ch1_light/2_prescaling/">
+        Pre-scaling
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ch1_light/3_colour/" title="Turn up the colours" class="dd-item ">
+        <a href="../../ch1_light/3_colour/">
+        Turn up the colours
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ch1_light/4_together/" title="Bringing it all together" class="dd-item ">
+        <a href="../../ch1_light/4_together/">
+        Bringing it all together
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ch2_soc/" title="2: Put a SOC in it" class="dd-item
+        
+        
+        
+        ">
+      <a href="../../ch2_soc/">
+          2: Put a SOC in it
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2_soc/1_soc/" title="Put a SoC in it" class="dd-item ">
+        <a href="../../ch2_soc/1_soc/">
+        Put a SoC in it
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2_soc/2_emb_software/" title="Embedded software" class="dd-item ">
+        <a href="../../ch2_soc/2_emb_software/">
+        Embedded software
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ch3_comm/" title="3: Communication" class="dd-item
+        
+        
+        
+        ">
+      <a href="../../ch3_comm/">
+          3: Communication
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ch3_comm/1_communication/" title="Communication" class="dd-item ">
+        <a href="../../ch3_comm/1_communication/">
+        Communication
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ch3_comm/2_mult_clock/" title="Multiple clocks" class="dd-item ">
+        <a href="../../ch3_comm/2_mult_clock/">
+        Multiple clocks
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ch3_comm/3_communicator/" title="Communicator" class="dd-item ">
+        <a href="../../ch3_comm/3_communicator/">
+        Communicator
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ch4_esw/" title="4: Embedded Software" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="../../ch4_esw/">
+          4: Embedded Software
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ch4_esw/1_driver/" title="Driver" class="dd-item active">
+        <a href="../../ch4_esw/1_driver/">
+        Driver
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ch90_faq/" title="FAQ" class="dd-item
+        
+        
+        
+        ">
+      <a href="../../ch90_faq/">
+          FAQ
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li>
+                  <a class="padding" href="https://uhintra03.uhasselt.be/studiegidswww/opleidingsonderdeel.aspx?a=2022&amp;i=3314"><i class='fa fa-university'></i> ECTS Sheet</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://toledo.kuleuven.be/"><i class='fa fa-university'></i> Toledo</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='../../'>System-on-Chip design and experimentation  - lab</a> > <a href='../../ch4_esw/'>4: Embedded Software</a> > Driver
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#hardware-mapping">Hardware mapping</a></li>
+<li><a href="#driver">Driver</a>
+<ul>
+<li><a href="#memory-map">Memory map</a></li>
+<li><a href="#installing-some-defines">Installing some defines</a></li>
+<li><a href="#starting-the-driver">Starting the driver</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Driver
+            </h1>
+          
+
+        
+
+
+
+
+<p>In <a href="../../ch2_soc/2_emb_software">Chapter 2 - Embedded software</a> some basics on the embedded software has been given. A bit more general information is explained using the communicator as example.</p>
+
+<h2 id="hardware-mapping">Hardware mapping</h2>
+
+<p>As chip designer for the communicator, <strong>you</strong> are the one that knows how you wired up the Memory-Mapped IO. In this example the mapping below is assumed.</p>
+
+<figure><img src="../../img/ch4/comm_ip.svg"/><figcaption>
+            <h4>MMIO map</h4>
+        </figcaption>
+</figure>
+
+<p>The image above shows the use of <strong>4 registers</strong>. Slv_reg0 and slv_reg1 are <em>outgoing</em> registers while slv_reg2 and slv_reg3 are incoming registers. The <strong>data_out</strong> signal is mapped directly to slv_reg2 and, similarly, the <strong>data_in</strong> signal is driven by slv_reg0. Connecting up the data-portion is straightforward.</p>
+
+<p>The control-portion of the design sometimes requires a bit more attention. Typically this is done through a <strong>command register (CR)</strong> (from the processor towards the hardware) and a <strong>status register (SR)</strong> (from the hardware to the processor). As the design is becoming more complex, a single 32-bit vector could not fit all the relevant signals and more registers can be required. In this example slv_reg1 acts as CR while slv_reg3 act as a SR.</p>
+
+<p>According to the requirements, the I2C_slave component signals valid output data through a short pulse on the data_out_valid signals. As it is very likely that the software will miss this pulse, the example adds a <strong>set-reset-flipflop</strong>. This way there is an <strong>acknowledgement</strong> of the fact there is data present.</p>
+
+<figure><img src="../../img/ch4/wavedrom_SRFF.png"/>
+</figure>
+
+
+<div class="source">
+Image created with <a href="https://wavedrom.com" target="_blank">wavedrom.com</a>
+</div>
+
+<p>The result of the SRFF is <em>always</em> stored in slv_reg0.</p>
+
+<h2 id="driver">Driver</h2>
+
+<h3 id="memory-map">Memory map</h3>
+
+<div class="multicolumn">
+  <div class="column">
+With the hardware design fixed, it is necessary to create a <b>driver</b> This is small piece of software that provides a certain API to the user. Because the user does not know the <b>hardware mapping</b> is done, this driver has to be provided by the supplier of the hardware, also known as: <b>YOU</b>.
+<br/>
+<br/>
+While creating the blockdesign, there is <i>Address Editor</i> in anther Vivado tab.
+
+<figure><img src="../../img/ch4/vivado_addressing.png"/><figcaption>
+            <h4>Address Editor in Vivado</h4>
+        </figcaption>
+</figure>
+
+
+When moving to SDK for the software development, the complete memory map of the processor can be consulted. This shows the segmentation of the entire memory space. As can be seen in the example, both the instantiated IP components that you designed are taken up in this map.
+<br/><br/>
+As elaborated on in 2.2 (embedded software), the registers that are used in our approach are mapped to the start of the allocated memory space. <b>It is important</b> to remember that every <i>slv_reg</i> occupies 4 memory addresses.
+<br/><br/>
+You might have noticed, however, that mapping of a certain component in the entire memory map is not always identical. Sometimes, a certain component has another start address. This <b>annoying</b> fact has to be solved by driver, next to providing the API. Luckily the <b>xparameters.h</b> file is generated by the design tools and a define is made. The name of this define is fixed and this you can rely on to write the driver.
+
+  </div>
+  <div class="column">
+    <figure><img src="../../img/ch4/sdk_addressing.png"/><figcaption>
+            <h4>Address map in SDK (as found in the .hdf file)</h4>
+        </figcaption>
+</figure>
+
+  </div>
+</div>
+
+<h3 id="installing-some-defines">Installing some defines</h3>
+
+<p>In this example these defines are present in the <strong>xparameters.h</strong>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C">...
+<span style="color:#75715e">/* Definitions for peripheral COMMUNICATOR_V1_0_0 */</span>
+<span style="color:#75715e">#define XPAR_COMMUNICATOR_V1_0_0_BASEADDR 0x43C10000
+</span><span style="color:#75715e">#define XPAR_COMMUNICATOR_V1_0_0_HIGHADDR 0x43C1FFFF
+</span><span style="color:#75715e"></span>...</code></pre></div>
+<p>To make the our lives easier we can extend these defines in our own code.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#define XMASCOMM_BASEADDRESS      XPAR_COMMUNICATOR_V1_0_0_BASEADDR
+</span><span style="color:#75715e">#define XMASCOMM_REG0_ADDRESS     (XMASCOMM_BASEADDRESS + 0*4)
+</span><span style="color:#75715e">#define XMASCOMM_REG1_ADDRESS     (XMASCOMM_BASEADDRESS + 1*4)
+</span><span style="color:#75715e">#define XMASCOMM_REG2_ADDRESS     (XMASCOMM_BASEADDRESS + 2*4)
+</span><span style="color:#75715e">#define XMASCOMM_REG3_ADDRESS     (XMASCOMM_BASEADDRESS + 3*4)
+</span><span style="color:#75715e">#define XMASCOMM_REG4_ADDRESS     (XMASCOMM_BASEADDRESS + 4*4)</span></code></pre></div>
+<p>With these defines installed, the software developer does not have to bother himself/herself with these increments of four (as long as the processor is a 32-bitter). A typical thing you see in drivers is also the mapping of certain bits. Applying this to the example could look like:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#define XMASCOMM_SR_RXAVAILABLE   0x00000001U
+</span><span style="color:#75715e">#define XMASCOMM_CR_TXSEND        0x00000001U
+</span><span style="color:#75715e">#define XMASCOMM_CR_RXCONFIRM     0x00000002U</span></code></pre></div>
+<p>In Chapter 2 the functions <strong>Xil_In32()</strong> and <strong>Xil_Out32()</strong> are explained. However, with a tiny bit of C-magic, the code can become more readable.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#define XMASCOMM_FPGA2EXT         (*(volatile u32 *) XMASCOMM_REG0_ADDRESS)
+</span><span style="color:#75715e">#define XMASCOMM_CR               (*(volatile u32 *) XMASCOMM_REG1_ADDRESS)
+</span><span style="color:#75715e">#define XMASCOMM_EXT2FPGA         (*(volatile u32 *) XMASCOMM_REG2_ADDRESS)
+</span><span style="color:#75715e">#define XMASCOMM_SR               (*(volatile u32 *) XMASCOMM_REG3_ADDRESS)
+</span><span style="color:#75715e">#define XMASCOMM_MSGCOUNTER       (*(volatile u32 *) XMASCOMM_REG4_ADDRESS)</span></code></pre></div>
+<p>Let&rsquo;s quickly break this down for those whose C-skills are a bit rusty. The define <strong>XMASCOMM_SR</strong> make sure that, everywhere in the code this define is substituted by <strong>(*(volatile u32 *) XMASCOMM_REG0_ADDRESS)</strong>. XMASCOMM_REG0_ADDRESS contains the address of address 0. This value is type-cast to an unsigned 32-bit pointer. The keyword <strong>volatile</strong> states that the content of a variable can also be altered from another source. <strong>This is important !!</strong> Otherwise the optimisation of the C-compiler might optimise-out certain lines of C-code.</p>
+
+<p>The attentive reader could now spot that <strong>(volatile u32 *) XMASCOMM_REG0_ADDRESS</strong> is explained. However, in the define is another <strong>(* &hellip; )</strong> encapsulating all this. This is used to <strong>dereference</strong> the pointer that was created.</p>
+
+<blockquote>
+<p>A <strong>TL;DR</strong> version: with these defines you can write <strong>x = XMASCOMM_SR;</strong>, or <strong>XMASCOMM_CR = 12;</strong>.</p>
+</blockquote>
+
+
+<div class="notices warning" ><p>Earlier the following C-code was shown: <strong>Xil_Out32(XMAS_LIGHT_CR, 0x00000001);</strong> Note that this lines <strong>sets</strong> the LSB of the CR to one, but it also <strong>reset</strong> all other 31 bits to 0 !!</p>
+</div>
+
+
+<p>A better way of setting the LSB of the CR would be: <code>XMASCOMM_CR |= 0x1;</code> Using the full power of the defines that were made, results in the more general: <code>XMASCOMM_CR |= XMASCOMM_CR_TXSEND;</code></p>
+
+<h3 id="starting-the-driver">Starting the driver</h3>
+
+<p>Let us assume the following two C-files:</p>
+
+<div class="multicolumn">
+  <div class="column">
+  <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * xmascomm_driver.h
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;xparameters.h&#34;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;xil_io.h&#34;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">#define XMASCOMM_BASEADDRESS      XPAR_COMMUNICATOR_V1_0_0_BASEADDR
+</span><span style="color:#75715e">#define XMASCOMM_REG0_ADDRESS     (XMASCOMM_BASEADDRESS + 0*4)
+</span><span style="color:#75715e">#define XMASCOMM_REG1_ADDRESS     (XMASCOMM_BASEADDRESS + 1*4)
+</span><span style="color:#75715e">#define XMASCOMM_REG2_ADDRESS     (XMASCOMM_BASEADDRESS + 2*4)
+</span><span style="color:#75715e">#define XMASCOMM_REG3_ADDRESS     (XMASCOMM_BASEADDRESS + 3*4)
+</span><span style="color:#75715e">#define XMASCOMM_REG4_ADDRESS     (XMASCOMM_BASEADDRESS + 4*4)
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">#define XMASCOMM_FPGA2EXT         (*(volatile u32 *) XMASCOMM_REG0_ADDRESS)
+</span><span style="color:#75715e">#define XMASCOMM_CR               (*(volatile u32 *) XMASCOMM_REG1_ADDRESS)
+</span><span style="color:#75715e">#define XMASCOMM_EXT2FPGA         (*(volatile u32 *) XMASCOMM_REG2_ADDRESS)
+</span><span style="color:#75715e">#define XMASCOMM_SR               (*(volatile u32 *) XMASCOMM_REG3_ADDRESS)
+</span><span style="color:#75715e">#define XMASCOMM_MSGCOUNTER       (*(volatile u32 *) XMASCOMM_REG4_ADDRESS)
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">#define XMASCOMM_SR_RXAVAILABLE   0x00000001U
+</span><span style="color:#75715e">#define XMASCOMM_CR_TXSEND        0x00000001U
+</span><span style="color:#75715e">#define XMASCOMM_CR_RXCONFIRM     0x00000002U
+</span><span style="color:#75715e"></span>
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">xmascomm_send_command</span>(<span style="color:#66d9ef">uint32_t</span> data);
+<span style="color:#66d9ef">uint32_t</span> <span style="color:#a6e22e">xmascomm_wait_for_command</span>(<span style="color:#66d9ef">void</span>);
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">xmascomm_check_received</span>(<span style="color:#66d9ef">void</span>);
+<span style="color:#66d9ef">uint32_t</span> xmascomm_fetch_received(<span style="color:#66d9ef">void</span>)
+
+
+  
+</code></pre></div>
+  </div>
+  <div class="column">
+  <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">/*
+</span><span style="color:#75715e"> * xmascomm_driver.c
+</span><span style="color:#75715e"> */</span>
+
+<span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;xmascomm_driver.h&#34;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">xmascomm_send_command</span>(<span style="color:#66d9ef">uint32_t</span> data) {
+  XMASCOMM_FPGA2EXT <span style="color:#f92672">=</span> data;
+  XMASCOMM_CR <span style="color:#f92672">|=</span> XMASCOMM_CR_TXSEND;
+  XMASCOMM_CR <span style="color:#f92672">&amp;=</span> <span style="color:#f92672">~</span>(XMASCOMM_CR_TXSEND);
+}
+
+<span style="color:#66d9ef">uint32_t</span> <span style="color:#a6e22e">xmascomm_wait_for_command</span>(<span style="color:#66d9ef">void</span>) {
+  <span style="color:#66d9ef">uint32_t</span> rx;
+
+  <span style="color:#66d9ef">while</span>(<span style="color:#f92672">!</span> xmascomm_check_received());
+  rx <span style="color:#f92672">=</span> xmascomm_fetch_received();
+  xmas_comm_acknowledge_rx();
+
+  <span style="color:#66d9ef">return</span> rx;
+}
+
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">xmascomm_check_received</span>(<span style="color:#66d9ef">void</span>) {
+  <span style="color:#66d9ef">return</span> (XMASCOMM_SR <span style="color:#f92672">&amp;</span> XMASCOMM_SR_RXAVAILABLE);
+}
+
+<span style="color:#66d9ef">uint32_t</span> <span style="color:#a6e22e">xmascomm_fetch_received</span>(<span style="color:#66d9ef">void</span>) {
+  <span style="color:#66d9ef">return</span> (XMASCOMM_EXT2FPGA);
+}
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">xmascomm_acknowledge_rx</span>(<span style="color:#66d9ef">void</span>) {
+  XMASCOMM_CR <span style="color:#f92672">|=</span> XMASCOMM_CR_RXCONFIRM;
+  XMASCOMM_CR <span style="color:#f92672">&amp;=</span> <span style="color:#f92672">~</span>(XMASCOMM_CR_RXCONFIRM);
+}
+  
+</code></pre></div>
+  </div>
+</div>
+
+<p>Although this is not yet optimal, the code above gives some idea on how a driver is constructed. For the sake of completeness, it is mentioned that these C-files can also be include in the IP core. When you make the IP core available, it then includes the hardware and the accompanying driver.</p>
+
+
+<div class="notices note" ><p>The API provides the user of the IP core with some nice function calls. However, this API should be <strong>documented</strong> or the user will not know which nice function calls he/she can use. <strong>Don&rsquo;t forget !!</strong></p>
+</div>
+
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="../../ch4_esw/" title="4: Embedded Software"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="../../ch90_faq/" title="FAQ" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="../../js/clipboard.min.js?1683015354"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1683015354"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1683015354"></script>
+    <script src="../../js/jquery.sticky.js?1683015354"></script>
+    <script src="../../js/featherlight.min.js?1683015354"></script>
+    <script src="../../js/highlight.pack.js?1683015354"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1683015354"></script>
+    <script src="../../js/learn.js?1683015354"></script>
+    <script src="../../js/hugo-learn.js?1683015354"></script>
+    
+        
+            <script src="../../mermaid/mermaid.js?1683015354"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+

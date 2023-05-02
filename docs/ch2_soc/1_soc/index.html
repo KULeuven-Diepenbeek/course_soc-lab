@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="description" content="">
+
+
+    <link rel="icon" href="../../images/favicon.png" type="image/png">
+
+    <title>Put a SoC in it :: System-on-Chip design and experimentation - labs</title>
+
+    
+    <link href="../../css/nucleus.css?1683015354" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1683015354" rel="stylesheet">
+    <link href="../../css/hybrid.css?1683015354" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1683015354" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1683015354" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1683015354" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1683015354" rel="stylesheet">
+    <link href="../../css/theme.css?1683015354" rel="stylesheet">
+    <link href="../../css/tabs.css?1683015354" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1683015354" rel="stylesheet">
+    
+    <link href="../../css/theme-kul.css?1683015354" rel="stylesheet">
+    
+    
+
+    <script src="../../js/jquery-3.3.1.min.js?1683015354"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+        :not(pre) > code + span.copy-to-clipboard {
+            display: none;
+        }
+      
+    </style>
+      <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+
+<script>
+window.MathJax = {
+  chtml: {
+    scale: 2,                      
+    minScale: .5,                  
+    matchFontHeight: true,         
+    mtextInheritFont: false,       
+    merrorInheritFont: true,       
+    mathmlSpacing: false,          
+    skipAttributes: {},            
+    exFactor: .5,                  
+    displayAlign: 'center',        
+    displayIndent: '0'             
+  }
+};
+</script>
+
+<script src=../../js/osc.js></script>
+  </head>
+  <body class="" data-url="../../ch2_soc/1_soc/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a href="https://www.kuleuven.be/kuleuven/" target="_blank">
+	<img src="../../img/style/kul.png" alt="KU Leuven" /><br/>
+</a>
+<a href="https://www.uhasselt.be/" target="_blank">
+	<img src="../../img/style/uhasselt.svg" alt="UHasselt" id="uhlogo" />
+</a>
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="../../js/lunr.min.js?1683015354"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1683015354"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/soc-lab\/";
+    
+</script>
+<script type="text/javascript" src="../../js/search.js?1683015354"></script>
+
+    
+  </div>
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ch0_intro/" title="0: Introduction to the labs" class="dd-item
+        
+        
+        
+        ">
+      <a href="../../ch0_intro/">
+          0: Introduction to the labs
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ch1_light/" title="1: Let there be light" class="dd-item
+        
+        
+        
+        ">
+      <a href="../../ch1_light/">
+          1: Let there be light
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ch1_light/1_light/" title="Let there be light" class="dd-item ">
+        <a href="../../ch1_light/1_light/">
+        Let there be light
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ch1_light/2_prescaling/" title="Pre-scaling" class="dd-item ">
+        <a href="../../ch1_light/2_prescaling/">
+        Pre-scaling
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ch1_light/3_colour/" title="Turn up the colours" class="dd-item ">
+        <a href="../../ch1_light/3_colour/">
+        Turn up the colours
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ch1_light/4_together/" title="Bringing it all together" class="dd-item ">
+        <a href="../../ch1_light/4_together/">
+        Bringing it all together
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ch2_soc/" title="2: Put a SOC in it" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="../../ch2_soc/">
+          2: Put a SOC in it
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2_soc/1_soc/" title="Put a SoC in it" class="dd-item active">
+        <a href="../../ch2_soc/1_soc/">
+        Put a SoC in it
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2_soc/2_emb_software/" title="Embedded software" class="dd-item ">
+        <a href="../../ch2_soc/2_emb_software/">
+        Embedded software
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ch3_comm/" title="3: Communication" class="dd-item
+        
+        
+        
+        ">
+      <a href="../../ch3_comm/">
+          3: Communication
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ch3_comm/1_communication/" title="Communication" class="dd-item ">
+        <a href="../../ch3_comm/1_communication/">
+        Communication
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ch3_comm/2_mult_clock/" title="Multiple clocks" class="dd-item ">
+        <a href="../../ch3_comm/2_mult_clock/">
+        Multiple clocks
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ch3_comm/3_communicator/" title="Communicator" class="dd-item ">
+        <a href="../../ch3_comm/3_communicator/">
+        Communicator
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ch4_esw/" title="4: Embedded Software" class="dd-item
+        
+        
+        
+        ">
+      <a href="../../ch4_esw/">
+          4: Embedded Software
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ch4_esw/1_driver/" title="Driver" class="dd-item ">
+        <a href="../../ch4_esw/1_driver/">
+        Driver
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ch90_faq/" title="FAQ" class="dd-item
+        
+        
+        
+        ">
+      <a href="../../ch90_faq/">
+          FAQ
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li>
+                  <a class="padding" href="https://uhintra03.uhasselt.be/studiegidswww/opleidingsonderdeel.aspx?a=2022&amp;i=3314"><i class='fa fa-university'></i> ECTS Sheet</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://toledo.kuleuven.be/"><i class='fa fa-university'></i> Toledo</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='../../'>System-on-Chip design and experimentation  - lab</a> > <a href='../../ch2_soc/'>2: Put a SOC in it</a> > Put a SoC in it
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#hardware">Hardware</a>
+<ul>
+<li><a href="#ip-component">IP component</a></li>
+<li><a href="#soc">SOC</a></li>
+<li><a href="#finalising">Finalising</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Put a SoC in it
+            </h1>
+          
+
+        
+
+
+
+
+<p>Today&rsquo;s designs often feature a System-on-Chip (SOC). This is a buzz word which means that a chip contains more than only a processing core. Typically there are more components like, for example: a timer, some memory, and a UART.</p>
+
+<p>The <span style="color: #D0556A; font-weight: bold">PYNQ Z2</span> board contains a ZYNQ FPGA. This type of FPGAs is a hybrid form which combines the traditional reconfigurable fabric of an FPGA, with a dedicated processor. In the case of the <span style="color: #D0556A; font-weight: bold">PYNQ Z2</span> the dedicated processor is an ARM Cortex A9.</p>
+
+<h2 id="hardware">Hardware</h2>
+
+<p>In the next step, we&rsquo;re going to make a SOC. By the time it is finished it will look like the image below:</p>
+
+<div class="multicolumn">
+  <div class="column">
+<figure><img src="../../img/ch2/soc.png"/><figcaption>
+            <h4>The targeted SOC</h4>
+        </figcaption>
+</figure>
+
+  </div>
+  <div class="column">
+    <ul>
+      <li><span style="color: #B85450; font-weight: bold">processor</span>: the built-in ARM Cortex A9</li>
+      <li><span style="color: #D79B00; font-weight: bold">DDR</span>: the DDR3 Flash Memory, off-chip on the PCB</li>
+      <li><span style="color: #D6B656; font-weight: bold">reset</span>: reset generation (and synchronisation)</li>
+      <li><span style="color: #82B366; font-weight: bold">AXI4</span>: the AXI4 on-chip bus</li>
+      <li><span style="color: #6C8EBF; font-weight: bold">xmas_light</span>: the IP core that drives the LEDs and the RGB LEDs.</li>
+      <li><span style="color: #6C8EBF; font-weight: bold">communication</span>: the IP core that receives and sends instructions</li>       
+    </ul>
+  </div>
+</div>
+
+<p>The different components of the SOC have to be connected to each other. This is done through an on-chip bus. A heavily used interface is the <strong>Advanced eXtensible Interface (AXI)</strong>, which originates from ARM. The current version is AXI4. More information on AXI can be found online, starting from <a href="https://en.wikipedia.org/wiki/Advanced_eXtensible_Interface" target="_blank">wikipedia</a>.</p>
+
+<h3 id="ip-component">IP component</h3>
+
+<p>Up until now, you&rsquo;ve been working on the (hardware) functionality of the <em>fancy lights</em>. To attach your design to an AXI bus (or any other bus), the component needs a certain interface. The details on this interface itself fall out-of-scope for this lab. The Vivado design tool has a wizard that guides you through the generation of an AXI4 component. Using this wizard, the design as shown below is generated.</p>
+
+<figure><img src="../../img/ch2/ipcore.jpg"/><figcaption>
+            <h4>The generated IP core</h4>
+        </figcaption>
+</figure>
+
+<p>The entity or module that you have been working on is the <strong>xmas_light</strong> block in the middle. The outer most module <strong>xmas_light_v1_0</strong> does not do anything other than forwarding the top level inputs and outputs to <strong>xmas_light_v1_0_S00_AXI</strong>.</p>
+
+<p>From the naming of this middle block you can tell: 1) it is a child of xmas_light_v1_0, 2) it provides an AXI interface, and 3) the interface is <em>slave 0</em>. If the IP component has multiple interfaces, these numbers and names change.</p>
+
+<p>Your IP component will be reachable by the processor through an address. This is called <strong>Memory-Mapped IO (MMIO)</strong>. The interface that is generated already provides a number of <strong>slave register</strong> in xmas_light_v1_0_S00_AXI. When the processor read from (or writes to) a certain address, these operations actually target these registers. It is up to you (the designer) <strong>how</strong> you will wire up these registers to your design.</p>
+
+<p>For example: the 32-bit slave register 0 will be connected to the <strong>command</strong> input. The LSB of slave register 1 will be connected to thte <strong>command valid</strong>.</p>
+
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/B-F_jVeAcfs?rel=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+
+
+<div class="notices note" ><p>Don&rsquo;t forget to <strong>note down</strong> the connections to the registers; and to <strong>wire out</strong> external signals all the way up !!!</p>
+</div>
+
+
+<h3 id="soc">SOC</h3>
+
+<p>For now, the <strong>communication</strong> IP block is not used, because it is not existing yet. When that IP block is also finished, the SOC needs to be recreated.</p>
+
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/s3X2rotphUA?rel=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+
+
+<div class="notices note" ><p>Depending on your version of the tools, the layout might look different. Also different labels might be used on the buttons, but the general flow should be similar (if not identical).</p>
+</div>
+
+
+<h3 id="finalising">Finalising</h3>
+
+<div class="multicolumn">
+  <div class="column">
+Once the <b>block design</b> is finished, a <b>HDL wrapper</b> needs to be generated. This can be done by right clicking on the block design. Finally, the toolchain can be ran: synthesis, implementation, bitstream generation.
+
+
+<div class="notices warning" ><p>Verify that, with the bitstream generated, there are no timing violations !!</p>
+</div>
+
+If all is well, the hardware design can be <b>exported</b>. Make sure you tick the "export bitstream" check-box so the freshly generated bitstream is present in the SDK environment.
+
+  </div>
+  <div class="column">
+    <figure><img src="../../img/ch2/export_hardware.png"/>
+</figure>
+
+  </div>
+</div>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="../../ch2_soc/" title="2: Put a SOC in it"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="../../ch2_soc/2_emb_software/" title="Embedded software" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="../../js/clipboard.min.js?1683015354"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1683015354"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1683015354"></script>
+    <script src="../../js/jquery.sticky.js?1683015354"></script>
+    <script src="../../js/featherlight.min.js?1683015354"></script>
+    <script src="../../js/highlight.pack.js?1683015354"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1683015354"></script>
+    <script src="../../js/learn.js?1683015354"></script>
+    <script src="../../js/hugo-learn.js?1683015354"></script>
+    
+        
+            <script src="../../mermaid/mermaid.js?1683015354"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+

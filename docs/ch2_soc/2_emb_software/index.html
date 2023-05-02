@@ -1,0 +1,1336 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.92.2" />
+    <meta name="description" content="">
+
+
+    <link rel="icon" href="../../images/favicon.png" type="image/png">
+
+    <title>Embedded software :: System-on-Chip design and experimentation - labs</title>
+
+    
+    <link href="../../css/nucleus.css?1683015354" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1683015354" rel="stylesheet">
+    <link href="../../css/hybrid.css?1683015354" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1683015354" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1683015354" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1683015354" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1683015354" rel="stylesheet">
+    <link href="../../css/theme.css?1683015354" rel="stylesheet">
+    <link href="../../css/tabs.css?1683015354" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1683015354" rel="stylesheet">
+    
+    <link href="../../css/theme-kul.css?1683015354" rel="stylesheet">
+    
+    
+
+    <script src="../../js/jquery-3.3.1.min.js?1683015354"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+        :not(pre) > code + span.copy-to-clipboard {
+            display: none;
+        }
+      
+    </style>
+      <script id="MathJax-script" async
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+
+<script>
+window.MathJax = {
+  chtml: {
+    scale: 2,                      
+    minScale: .5,                  
+    matchFontHeight: true,         
+    mtextInheritFont: false,       
+    merrorInheritFont: true,       
+    mathmlSpacing: false,          
+    skipAttributes: {},            
+    exFactor: .5,                  
+    displayAlign: 'center',        
+    displayIndent: '0'             
+  }
+};
+</script>
+
+<script src=../../js/osc.js></script>
+  </head>
+  <body class="" data-url="../../ch2_soc/2_emb_software/">
+    <nav id="sidebar" class="">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a href="https://www.kuleuven.be/kuleuven/" target="_blank">
+	<img src="../../img/style/kul.png" alt="KU Leuven" /><br/>
+</a>
+<a href="https://www.uhasselt.be/" target="_blank">
+	<img src="../../img/style/uhasselt.svg" alt="UHasselt" id="uhlogo" />
+</a>
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="../../js/lunr.min.js?1683015354"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1683015354"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/soc-lab\/";
+    
+</script>
+<script type="text/javascript" src="../../js/search.js?1683015354"></script>
+
+    
+  </div>
+  
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ch0_intro/" title="0: Introduction to the labs" class="dd-item
+        
+        
+        
+        ">
+      <a href="../../ch0_intro/">
+          0: Introduction to the labs
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ch1_light/" title="1: Let there be light" class="dd-item
+        
+        
+        
+        ">
+      <a href="../../ch1_light/">
+          1: Let there be light
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ch1_light/1_light/" title="Let there be light" class="dd-item ">
+        <a href="../../ch1_light/1_light/">
+        Let there be light
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ch1_light/2_prescaling/" title="Pre-scaling" class="dd-item ">
+        <a href="../../ch1_light/2_prescaling/">
+        Pre-scaling
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ch1_light/3_colour/" title="Turn up the colours" class="dd-item ">
+        <a href="../../ch1_light/3_colour/">
+        Turn up the colours
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ch1_light/4_together/" title="Bringing it all together" class="dd-item ">
+        <a href="../../ch1_light/4_together/">
+        Bringing it all together
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ch2_soc/" title="2: Put a SOC in it" class="dd-item
+        parent
+        
+        
+        ">
+      <a href="../../ch2_soc/">
+          2: Put a SOC in it
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2_soc/1_soc/" title="Put a SoC in it" class="dd-item ">
+        <a href="../../ch2_soc/1_soc/">
+        Put a SoC in it
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ch2_soc/2_emb_software/" title="Embedded software" class="dd-item active">
+        <a href="../../ch2_soc/2_emb_software/">
+        Embedded software
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ch3_comm/" title="3: Communication" class="dd-item
+        
+        
+        
+        ">
+      <a href="../../ch3_comm/">
+          3: Communication
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ch3_comm/1_communication/" title="Communication" class="dd-item ">
+        <a href="../../ch3_comm/1_communication/">
+        Communication
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ch3_comm/2_mult_clock/" title="Multiple clocks" class="dd-item ">
+        <a href="../../ch3_comm/2_mult_clock/">
+        Multiple clocks
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ch3_comm/3_communicator/" title="Communicator" class="dd-item ">
+        <a href="../../ch3_comm/3_communicator/">
+        Communicator
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ch4_esw/" title="4: Embedded Software" class="dd-item
+        
+        
+        
+        ">
+      <a href="../../ch4_esw/">
+          4: Embedded Software
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+      <li data-nav-id="/ch4_esw/1_driver/" title="Driver" class="dd-item ">
+        <a href="../../ch4_esw/1_driver/">
+        Driver
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+      
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/ch90_faq/" title="FAQ" class="dd-item
+        
+        
+        
+        ">
+      <a href="../../ch90_faq/">
+          FAQ
+          
+      </a>
+      
+      
+    </li>
+  
+ 
+
+          
+        
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li>
+                  <a class="padding" href="https://uhintra03.uhasselt.be/studiegidswww/opleidingsonderdeel.aspx?a=2022&amp;i=3314"><i class='fa fa-university'></i> ECTS Sheet</a>
+              </li>
+          
+              <li>
+                  <a class="padding" href="https://toledo.kuleuven.be/"><i class='fa fa-university'></i> Toledo</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="footer">
+      <p>Built with <a href="https://github.com/matcornic/hugo-theme-learn"><i class="fas fa-heart"></i></a> from <a href="https://getgrav.org">Grav</a> and <a href="https://gohugo.io/">Hugo</a></p>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='../../'>System-on-Chip design and experimentation  - lab</a> > <a href='../../ch2_soc/'>2: Put a SOC in it</a> > Embedded software
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#software">Software</a>
+<ul>
+<li>
+<ul>
+<li><a href="#a-hardware-platform">A hardware platform</a></li>
+<li><a href="#the-user-application">The user application</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#add-some-s-vitamin-s-c">Add some <s>vitamin</s> C</a>
+<ul>
+<li><a href="#memory-mapped-io">Memory-Mapped IO</a></li>
+<li><a href="#example">Example</a></li>
+</ul></li>
+<li><a href="#exercise">Exercise</a></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Embedded software
+            </h1>
+          
+
+        
+
+
+
+
+<h2 id="software">Software</h2>
+
+<p>The Xilinx software includes an integrated development environment (IDE). Before this can be used the generated hardware needs to be <strong>exported</strong> to an <strong>.xsa</strong> file. This file can be used in the <strong>Vitis IDE</strong>, which can be launched from the start menu or vivado. It is recommended to use a new Vitis workspace for each new software project.</p>
+
+<p>When creating a Vitis project it is required to use a different name than the name of the .xsa file.</p>
+
+<p>The software in SDK is built in three steps: 1) a hardware platform, 2) a board support package, and 3) the user application.</p>
+
+<p>The video is for the old Xilinx SDK, but most information still holds true for the Vitis IDE.</p>
+
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/w7Jjo1oNRtQ?rel=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+
+<h4 id="a-hardware-platform">A hardware platform</h4>
+
+<p>Once a Vitis project is created 2 folders will be created in the <strong>project explorer</strong> the first one with the green symbol is the <strong>hardware platform</strong>. This <em>layer</em> contains the low level information on the hardware:
+<!--Once SDK has started, a single folder in the **Project Explorer** is available: the **hardware platform**. This *layer* contains the low level information on the hardware:--></p>
+
+<ul>
+<li>the addresses of the IP components that are connected</li>
+<li>a bitstream for the reconfigurable fabric</li>
+<li>the address map of the processor</li>
+</ul>
+
+<p>This hardware platform is shared among all the applications that are created in the same Vitis workspace. Once the hardware is fixed (and bugfree) there is no reason why this should change, anyhow. It is possible to update the hardware by right clicking it and selecting <strong>update hardware specifications</strong>.</p>
+
+
+<div class="notices note" ><p>The hardware platform is generated during the <strong>export</strong> of the hardware in Vivado.</p>
+</div>
+
+
+<!-- 
+NOT TRUE FOR VITIS
+#### A board support package
+
+Each **user application** (which will be discussed below) needs a **board support package**. This layer gathers all the available drivers for the IP cores that are used in hardware platform. These drivers are all compiled for the targeted processor (an Cortex A9 in our example). If multiple, different processors are used, this might be increased. Finally, this bsp generates a static library that contains all the required driver functions.
+
+
+<div class="notices note" ><p>A board support packages is generated by SDK when creating a new user application.</p>
+</div>
+
+
+-->
+
+<h4 id="the-user-application">The user application</h4>
+
+<p>With a hardware platform and a board support package ready, you can create a user application. There are a number of templates provided in SDK. If you want to make sure your serial connection is working, it might be useful to start with the <strong>Hello world</strong> example. Otherwise an <strong>Empty application</strong> is the way to go.</p>
+
+<h2 id="add-some-s-vitamin-s-c">Add some <s>vitamin</s> C</h2>
+
+<p>In case you hadn&rsquo;t noticed yet, this processor is not as powerful as your laptop&rsquo;s. Also the amount of available memory is <em>slightly</em> less. That aside, the biggest thing you&rsquo;ll be missing is an <strong>operating system</strong>. Welcome to the exciting world of <strong>bare-metal programming</strong>. Here are a number of points, that are worth pointing out.</p>
+
+<ul>
+<li>don&rsquo;t use <strong>printf(&ldquo;&rdquo;)</strong> That C-function is too heavy to be using on our SOC. Xilinx has provided an alternative <strong>xil_printf(&ldquo;&rdquo;)</strong> which supports basic functionalities and is less heavy.</li>
+<li>the standard input and output devices are a <strong>single serial</strong> port (COMx, /dev/ttyXXX). This can, off course, be changed but the default is a serial port. The baudrate is <strong>115200</strong>.</li>
+<li>a <strong>text base menu</strong> is a nice way to implement multiple features</li>
+<li>there is no sleep function, out-of-the-box. The easiest way is shown in the example below ( pause(void) ), the best way is to add a <strong>timer</strong> IP block.</li>
+</ul>
+
+<h3 id="memory-mapped-io">Memory-Mapped IO</h3>
+
+<div class="multicolumn" >
+    <div class="column" style="width:75%">
+
+As mentioned before, the IP core that we've created is Memory-Mapped. Upon the creation of the SOC, the available memory space is segmented. This way, our xmas-light IP component has a <strong>base address</strong> and a <strong>memory size</strong>.
+
+All the IO operations on the AXI bus are 32-bit operations. Hence, writing to the <strong>base address</strong> results in a write to <strong>slave register 0</strong>. The memory space, however, is <strong>byte-flavoured</strong>. Because there are still 4 bytes in a 32-bit word, this means that writing to <strong>slave register 1</strong> requires writing to <strong>base address + 4</strong>.
+
+The board support package generates, among a lot of other things, a file <strong>xparameters.h</strong>. This file contains a lot of defines to make programming the SOC a little bit more generic. For example, there could be the following defines:
+
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#define XPAR_XMAS_LIGHT_0_S00_AXI_BASEADDR       0x40C00000
+</span><span style="color:#75715e">#define XPAR_XMAS_LIGHT_0_S00_AXI_HIGHADDR       0x40C000FF</span></code></pre></div>
+
+    </div>
+    <div class="column" style="width:25%">
+
+
+<figure><img src="../../img/ch2/xparameters_location.png"/><figcaption>
+            <h4>xparameters.h location</h4>
+        </figcaption>
+</figure>
+
+
+    </div>
+</div>
+
+<p>By including this header file, our software can simply use the human-friendly <strong>XPAR_XMAS_LIGHT_0_S00_AXI_BASEADDR</strong> identifier to refer to the base address of the component. Next to making our lives a little easier, this also provides a <strong>flexible</strong> solution. If our component is, for some reason, mapped to another address in another design, our software doesn&rsquo;t need updating. Simply including <strong>xparameters.h</strong> will do the trick.</p>
+
+<p>As we are the designers of this IP core, we <strong>know</strong> the mapping between the memory space and the functionalities. It can be useful, for ourself, to <strong>fix</strong> this mapping only once.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#define XMAS_LIGHT_COMMAND       XPAR_XMAS_LIGHT_0_S00_AXI_BASEADDR+0*4
+</span><span style="color:#75715e">#define XMAS_LIGHT_CR            XPAR_XMAS_LIGHT_0_S00_AXI_BASEADDR+1*4</span></code></pre></div>
+<p>Using this approach results in a (bit) more flexible and portable software.</p>
+
+<p>If we want to write a <strong>command</strong> to the IP core, we need to give a value to the command and make the <strong>command valid</strong> bit high. The example below gives this functionality as function:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">xmas_light_write_command</span>(<span style="color:#66d9ef">uint32_t</span> data) {
+  Xil_Out32(XMAS_LIGHT_COMMAND, data);
+  Xil_Out32(XMAS_LIGHT_CR, <span style="color:#ae81ff">0x00000001</span>);
+  Xil_Out32(XMAS_LIGHT_CR, <span style="color:#ae81ff">0x00000000</span>);
+}</code></pre></div>
+<p>The argument <em>data</em> is written to slave register 0. Remember this is positioned at the <strong>base address</strong> which we renamed to <strong>XMAS_LIGHT_COMMAND</strong>. When the data is written a <strong>0x1</strong> is written to slave register 1 after which a <strong>0x0</strong> is written. This has as effect that the <strong>command_valid</strong> bit goes high for a number of clock cycles.</p>
+
+<p>For the sake of completeness it is mentioned there is also a similar reading function: Xil_In32(). An example is given on lin 98, in the code below.</p>
+
+<h3 id="example">Example</h3>
+
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 51
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 52
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 53
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 54
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 55
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 56
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 57
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 58
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 59
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 60
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 61
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 62
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 63
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 64
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 65
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 66
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 67
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 68
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 69
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 70
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 71
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 72
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 73
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 74
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 75
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 76
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 77
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 78
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 79
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 80
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 81
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 82
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 83
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 84
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 85
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 86
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 87
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 88
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 89
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 90
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 91
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 92
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 93
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 94
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 95
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 96
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 97
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 98
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 99
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">100
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">101
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">102
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">103
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">104
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">105
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">106
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">107
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">108
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">109
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">110
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">111
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">112
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">113
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">114
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">115
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">116
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">117
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">118
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">119
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">120
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">121
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">122
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;xparameters.h&#34; /* from bsp; contains a LOT of defines */</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;xil_io.h&#34;      /* from bsp; IO functions*/</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;xuartps_hw.h&#34;  /* from bsp; UART driver functions*/</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">/* Some defines to make our lives easier*/</span>
+<span style="color:#75715e">#define XMAS_LIGHT_COMMAND       XPAR_XMAS_LIGHT_0_S00_AXI_BASEADDR+0*4
+</span><span style="color:#75715e">#define XMAS_LIGHT_CR            XPAR_XMAS_LIGHT_0_S00_AXI_BASEADDR+1*4
+</span><span style="color:#75715e"></span>
+<span style="color:#75715e">/* Forward declarations */</span>
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">pause</span>(<span style="color:#66d9ef">void</span>);
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">xmas_light_write_command</span>(<span style="color:#66d9ef">uint32_t</span> data);
+
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">void</span>) {
+  <span style="color:#66d9ef">uint8_t</span> choice <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;0&#39;</span>, counter;
+  <span style="color:#66d9ef">uint32_t</span> value;
+
+  <span style="color:#75715e">/* make a text-based menu */</span>
+  <span style="color:#66d9ef">while</span>(choice <span style="color:#f92672">!=</span> <span style="color:#e6db74">&#39;q&#39;</span>) {
+    xil_printf(<span style="color:#e6db74">&#34;LED commands</span><span style="color:#ae81ff">\r\n</span><span style="color:#e6db74">&#34;</span>);
+    xil_printf(<span style="color:#e6db74">&#34;    0: blank all LEDs</span><span style="color:#ae81ff">\r\n</span><span style="color:#e6db74">&#34;</span>);
+    xil_printf(<span style="color:#e6db74">&#34;    1: drive all LEDs</span><span style="color:#ae81ff">\r\n</span><span style="color:#e6db74">&#34;</span>);
+    xil_printf(<span style="color:#e6db74">&#34;    a: blink all LEDs at 1 Hz</span><span style="color:#ae81ff">\r\n</span><span style="color:#e6db74">&#34;</span>);
+    xil_printf(<span style="color:#e6db74">&#34;    b: blink all LEDs at 2 Hz</span><span style="color:#ae81ff">\r\n</span><span style="color:#e6db74">&#34;</span>);
+    xil_printf(<span style="color:#e6db74">&#34;    c: blink all LEDs at 4 Hz</span><span style="color:#ae81ff">\r\n</span><span style="color:#e6db74">&#34;</span>);
+    xil_printf(<span style="color:#e6db74">&#34;    d: blink all LEDs at 8 Hz</span><span style="color:#ae81ff">\r\n</span><span style="color:#e6db74">&#34;</span>);
+    xil_printf(<span style="color:#e6db74">&#34;RGBLED commands</span><span style="color:#ae81ff">\r\n</span><span style="color:#e6db74">&#34;</span>);
+    xil_printf(<span style="color:#e6db74">&#34;    e: drive all RGBLEDs: BLUE</span><span style="color:#ae81ff">\r\n</span><span style="color:#e6db74">&#34;</span>);
+    xil_printf(<span style="color:#e6db74">&#34;    f: drive all RGBLEDs: GREEN</span><span style="color:#ae81ff">\r\n</span><span style="color:#e6db74">&#34;</span>);
+    xil_printf(<span style="color:#e6db74">&#34;    g: drive all RGBLEDs: RED</span><span style="color:#ae81ff">\r\n</span><span style="color:#e6db74">&#34;</span>);
+    xil_printf(<span style="color:#e6db74">&#34;General</span><span style="color:#ae81ff">\r\n</span><span style="color:#e6db74">&#34;</span>);
+    xil_printf(<span style="color:#e6db74">&#34;    t: the fancy stuff</span><span style="color:#ae81ff">\r\n</span><span style="color:#e6db74">&#34;</span>);
+    xil_printf(<span style="color:#e6db74">&#34;</span><span style="color:#ae81ff">\r\n</span><span style="color:#e6db74">    q: quit</span><span style="color:#ae81ff">\r\n</span><span style="color:#e6db74">  : &#34;</span>);
+
+    <span style="color:#75715e">/* get the choice */</span>
+    choice <span style="color:#f92672">=</span> XUartPs_RecvByte(XPAR_PS7_UART_0_BASEADDR);
+    xil_printf(<span style="color:#e6db74">&#34;%c</span><span style="color:#ae81ff">\r\n</span><span style="color:#e6db74">&#34;</span>, choice);
+
+    <span style="color:#75715e">/* handle according to the choice ... and we work case INsensitive */</span>
+    <span style="color:#66d9ef">if</span> (choice <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;0&#39;</span>) { <span style="color:#75715e">/* turn off ALL LEDs */</span>
+      xmas_light_write_command(<span style="color:#ae81ff">0xF0</span>);
+      xmas_light_write_command(<span style="color:#ae81ff">0x3F000</span>);
+    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> (choice <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;1&#39;</span>) { <span style="color:#75715e">/* turn on ALL LEDs */</span>
+      xmas_light_write_command(<span style="color:#ae81ff">0xF1</span>);
+      xmas_light_write_command(<span style="color:#ae81ff">0x3FF00</span>);
+    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> ((choice <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;a&#39;</span>)<span style="color:#f92672">||</span>(choice <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;A&#39;</span>)) {
+      xmas_light_write_command(<span style="color:#ae81ff">0xFC</span>);
+    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> ((choice <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;b&#39;</span>)<span style="color:#f92672">||</span>(choice <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;B&#39;</span>)) {
+      xmas_light_write_command(<span style="color:#ae81ff">0xFD</span>);
+    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> ((choice <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;c&#39;</span>)<span style="color:#f92672">||</span>(choice <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;C&#39;</span>)) {
+      xmas_light_write_command(<span style="color:#ae81ff">0xFE</span>);
+    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> ((choice <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;d&#39;</span>)<span style="color:#f92672">||</span>(choice <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;D&#39;</span>)) {
+      xmas_light_write_command(<span style="color:#ae81ff">0xFF</span>);
+    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> ((choice <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;e&#39;</span>)<span style="color:#f92672">||</span>(choice <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;E&#39;</span>)) {
+      xmas_light_write_command(<span style="color:#ae81ff">0x24F00</span>);
+    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> ((choice <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;f&#39;</span>)<span style="color:#f92672">||</span>(choice <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;F&#39;</span>)) {
+      xmas_light_write_command(<span style="color:#ae81ff">0x12F00</span>);
+    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> ((choice <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;g&#39;</span>)<span style="color:#f92672">||</span>(choice <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;G&#39;</span>)) {
+      xmas_light_write_command(<span style="color:#ae81ff">0x09F00</span>);
+    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> ((choice <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;t&#39;</span>)<span style="color:#f92672">||</span>(choice <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;T&#39;</span>)) {
+      <span style="color:#75715e">/* the fancy stuff */</span>
+      xmas_light_write_command(<span style="color:#ae81ff">0x3F000</span>); <span style="color:#75715e">// RGB LEDs off
+</span><span style="color:#75715e"></span>
+      <span style="color:#75715e">/* repeat 10 times */</span>
+      <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;j<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">10</span>;j<span style="color:#f92672">++</span>) {
+        <span style="color:#75715e">// fade in RED
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">for</span>(counter<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;counter<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">16</span>;counter<span style="color:#f92672">++</span>) {
+          xmas_light_write_command(<span style="color:#ae81ff">0x01000</span><span style="color:#f92672">+</span>((counter)<span style="color:#f92672">&lt;&lt;</span><span style="color:#ae81ff">8</span>)); <span style="color:#75715e">// scale red
+</span><span style="color:#75715e"></span>          pause();
+        }
+        <span style="color:#75715e">// fade in GREEN
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">for</span>(counter<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;counter<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">16</span>;counter<span style="color:#f92672">++</span>) {
+          xmas_light_write_command(<span style="color:#ae81ff">0x02000</span><span style="color:#f92672">+</span>((counter)<span style="color:#f92672">&lt;&lt;</span><span style="color:#ae81ff">8</span>)); <span style="color:#75715e">// scale blue
+</span><span style="color:#75715e"></span>          pause();
+        }
+        <span style="color:#75715e">// fade out RED
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">for</span>(counter<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;counter<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">16</span>;counter<span style="color:#f92672">++</span>) {
+          xmas_light_write_command(<span style="color:#ae81ff">0x01000</span><span style="color:#f92672">+</span>((<span style="color:#ae81ff">15</span><span style="color:#f92672">-</span>counter)<span style="color:#f92672">&lt;&lt;</span><span style="color:#ae81ff">8</span>)); <span style="color:#75715e">// scale red down
+</span><span style="color:#75715e"></span>          pause();
+        }
+        <span style="color:#75715e">// fade in BLUE
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">for</span>(counter<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;counter<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">16</span>;counter<span style="color:#f92672">++</span>) {
+          xmas_light_write_command(<span style="color:#ae81ff">0x04000</span><span style="color:#f92672">+</span>((counter)<span style="color:#f92672">&lt;&lt;</span><span style="color:#ae81ff">8</span>)); <span style="color:#75715e">// scale blue
+</span><span style="color:#75715e"></span>          pause();
+        }
+        <span style="color:#75715e">// fade out GREEN
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">for</span>(counter<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;counter<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">16</span>;counter<span style="color:#f92672">++</span>) {
+          xmas_light_write_command(<span style="color:#ae81ff">0x02000</span><span style="color:#f92672">+</span>((<span style="color:#ae81ff">15</span><span style="color:#f92672">-</span>counter)<span style="color:#f92672">&lt;&lt;</span><span style="color:#ae81ff">8</span>)); <span style="color:#75715e">// scale red down
+</span><span style="color:#75715e"></span>          pause();
+        }
+        <span style="color:#75715e">// fade out BLUE
+</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">for</span>(counter<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;counter<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">16</span>;counter<span style="color:#f92672">++</span>) {
+          xmas_light_write_command(<span style="color:#ae81ff">0x04000</span><span style="color:#f92672">+</span>((<span style="color:#ae81ff">15</span><span style="color:#f92672">-</span>counter)<span style="color:#f92672">&lt;&lt;</span><span style="color:#ae81ff">8</span>)); <span style="color:#75715e">// scale red down
+</span><span style="color:#75715e"></span>          pause();
+        }
+      }
+
+    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> ((choice <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;r&#39;</span>)<span style="color:#f92672">||</span>(choice <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;R&#39;</span>)) {
+      xil_printf(<span style="color:#e6db74">&#34;  read: %08x</span><span style="color:#ae81ff">\r\n</span><span style="color:#e6db74">&#34;</span>, Xil_In32(XMAS_LIGHT_COMMAND));
+      xmas_light_write_command(<span style="color:#ae81ff">0xFF</span>);
+    } <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> ((choice <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;q&#39;</span>)<span style="color:#f92672">||</span>(choice <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;Q&#39;</span>)) {
+      xil_printf(<span style="color:#e6db74">&#34;Byebye</span><span style="color:#ae81ff">\r\n</span><span style="color:#e6db74">&#34;</span>);
+    } <span style="color:#66d9ef">else</span> {
+      xil_printf(<span style="color:#e6db74">&#34;Sorry &#39;%c&#39; is not (yet) supported</span><span style="color:#ae81ff">\r\n</span><span style="color:#e6db74">&#34;</span>, choice);
+    }
+  };
+
+  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+}
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">pause</span>(<span style="color:#66d9ef">void</span>) {
+  <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;i<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">1024</span>;i<span style="color:#f92672">++</span>) {
+    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> j<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;j<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">1024</span>;j<span style="color:#f92672">++</span>) {
+      <span style="color:#66d9ef">asm</span>(<span style="color:#e6db74">&#34;nop&#34;</span>);
+  }}
+}
+
+
+<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">xmas_light_write_command</span>(<span style="color:#66d9ef">uint32_t</span> data) {
+  Xil_Out32(XMAS_LIGHT_COMMAND, data);
+  Xil_Out32(XMAS_LIGHT_CR, <span style="color:#ae81ff">0x00000001</span>);
+  Xil_Out32(XMAS_LIGHT_CR, <span style="color:#ae81ff">0x00000000</span>);
+}</code></pre></td></tr></table>
+</div>
+</div>
+
+<p>From the SDK software you can program the FPGA. This needs to be done first. After configuring the bitstream, the software can be run <strong>on the hardware</strong>. This should look something like the example below.</p>
+
+
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/wJdmUy26UHk?rel=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+
+<h2 id="exercise">Exercise</h2>
+
+<ol>
+<li>Generate the SOC for yourself</li>
+<li>Run the code from the example above</li>
+<li>Get creative and make some cool light effects</li>
+</ol>
+
+
+<footer class="footline">
+	
+</footer>
+
+        
+        </div>
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="../../ch2_soc/1_soc/" title="Put a SoC in it"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="../../ch3_comm/" title="3: Communication" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="../../js/clipboard.min.js?1683015354"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1683015354"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1683015354"></script>
+    <script src="../../js/jquery.sticky.js?1683015354"></script>
+    <script src="../../js/featherlight.min.js?1683015354"></script>
+    <script src="../../js/highlight.pack.js?1683015354"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1683015354"></script>
+    <script src="../../js/learn.js?1683015354"></script>
+    <script src="../../js/hugo-learn.js?1683015354"></script>
+    
+        
+            <script src="../../mermaid/mermaid.js?1683015354"></script>
+        
+        <script>
+            mermaid.initialize({ startOnLoad: true });
+        </script>
+    
+    
+
+  </body>
+</html>
+

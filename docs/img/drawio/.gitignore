@@ -1,0 +1,7 @@
+# Ignore everything
+*
+
+# but not these files
+!.gitignore
+!images_lchip2.pdf
+!run.sh

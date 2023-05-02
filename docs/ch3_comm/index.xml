@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>3: Communication on System-on-Chip design and experimentation - labs</title>
+    <link>https://kuleuven-diepenbeek.github.io/soc-lab/ch3_comm/</link>
+    <description>Recent content in 3: Communication on System-on-Chip design and experimentation - labs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-uk</language>
+    <managingEditor>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Nele Mentens and Jo Vliegen)</managingEditor>
+    <webMaster>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Nele Mentens and Jo Vliegen)</webMaster><atom:link href="https://kuleuven-diepenbeek.github.io/soc-lab/ch3_comm/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Communication</title>
+      <link>https://kuleuven-diepenbeek.github.io/soc-lab/ch3_comm/1_communication/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Nele Mentens and Jo Vliegen)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/soc-lab/ch3_comm/1_communication/</guid>
+      <description>Up until this chapter you&amp;rsquo;ve created and implemented a design that drives lights. There are fancy colours and nice effects. Additionally the design is wrapped in an IP core. This IP core is used in a SOC to make the design programmable.
+Communication has been done through a commincator IP core. This component allows bidirectional communication to send instructions to processor. The processor forwards the instructions to the IP core.</description>
+    </item>
+    
+    <item>
+      <title>Multiple clocks</title>
+      <link>https://kuleuven-diepenbeek.github.io/soc-lab/ch3_comm/2_mult_clock/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Nele Mentens and Jo Vliegen)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/soc-lab/ch3_comm/2_mult_clock/</guid>
+      <description>A lot of designs, today, have multiple clock signals. Even in our rather simple exercise a second 100 kHZ pops up. When multiple clock signals are present, special attention is required !!
+Clock domain crossing All the components that are synchronised to one clock form a group that is called a clock domain. In our example we have two clock domains (the 100 MHz and the 100 kHz).
+When signals switch from one clock domain to the other, bad stuff can happen.</description>
+    </item>
+    
+    <item>
+      <title>Communicator</title>
+      <link>https://kuleuven-diepenbeek.github.io/soc-lab/ch3_comm/3_communicator/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Nele Mentens and Jo Vliegen)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/soc-lab/ch3_comm/3_communicator/</guid>
+      <description>With the protocol fixed and the attention to CDX (clock domain crossing), design and implementation can start.
+I2C slave The design you&#39;re making needs to be able to receive commands over I2C. For this purpose it has 2 external inputs: I2C_S_scl and I2C_S_sda. This component watches these two signals all the time. When a 32-bit command, data is received it flags this with a data valid signal.  I2C master The design you&#39;re making needs to be able to send commands over I2C.</description>
+    </item>
+    
+  </channel>
+</rss>

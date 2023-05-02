@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>System-on-Chip design and experimentation  - lab on System-on-Chip design and experimentation - labs</title>
+    <link>https://kuleuven-diepenbeek.github.io/soc-lab/</link>
+    <description>Recent content in System-on-Chip design and experimentation  - lab on System-on-Chip design and experimentation - labs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-uk</language>
+    <managingEditor>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Nele Mentens and Jo Vliegen)</managingEditor>
+    <webMaster>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Nele Mentens and Jo Vliegen)</webMaster><atom:link href="https://kuleuven-diepenbeek.github.io/soc-lab/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Let there be light</title>
+      <link>https://kuleuven-diepenbeek.github.io/soc-lab/ch1_light/1_light/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Nele Mentens and Jo Vliegen)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/soc-lab/ch1_light/1_light/</guid>
+      <description>To get started you are going to build a hardware design that brings on the LEDs of the PYNQ Z2 board. The architecture is very simple and should look something link the image below.
+Describing the hardware For the computer to understand what you are building, a Hardware Description Language (HDL) is required. In this lab, this will be VHDL. The environment that you are going to use to make the design is Vivado.</description>
+    </item>
+    
+    <item>
+      <title>Pre-scaling</title>
+      <link>https://kuleuven-diepenbeek.github.io/soc-lab/ch1_light/2_prescaling/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Nele Mentens and Jo Vliegen)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/soc-lab/ch1_light/2_prescaling/</guid>
+      <description>Pre-scaler One signal for which all hardware designers have to bow is the almighty CLOCK. In the previous exercise, you&amp;rsquo;ve already connect up with this signal. The clock on the PYNQ Z2 runs at 125MHz and therefore has a clock period of 8 ns.
+As the final aim of this lab is to flash lights like a Christmas tree, having fancy light effects change every 8 ns would be a little quick to the eyes.</description>
+    </item>
+    
+    <item>
+      <title>Turn up the colours</title>
+      <link>https://kuleuven-diepenbeek.github.io/soc-lab/ch1_light/3_colour/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Nele Mentens and Jo Vliegen)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/soc-lab/ch1_light/3_colour/</guid>
+      <description>The LEDs are nice, but not very festive. As the PYNQ Z2 board also has RBG LEDs, we can turn up the colours.
+RGB LEDs The RGB LEDs on the PYNQ Z2 have three inputs that can be driven by the FPGA. Although driving a single input gives a single colour, different colours can be shown.
+Look at all the colours Instead of driving a single input, multiple inputs can be driven as well.</description>
+    </item>
+    
+    <item>
+      <title>Bringing it all together</title>
+      <link>https://kuleuven-diepenbeek.github.io/soc-lab/ch1_light/4_together/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Nele Mentens and Jo Vliegen)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/soc-lab/ch1_light/4_together/</guid>
+      <description>Up until this point you have made different hardware designs to achieve a number of features. These features will be used in the board as it functions as Christmas light.
+Before going to a processor or communication, things needs to be fixed. The most important thing, from a hardware point of view, is the interface. The following features will need to be present:
+Targets  LED 0 LED 1 LED 2 LED 3 RGB LED 0 RGB LED 1   Functions  fixed value on LED (0/1) blinking LED on certain frequencies the color on the RGB LEDs the brightness on the RGB LEDs    The configuration which will be applied to your PYNQ Z2, eventually, will come through communication.</description>
+    </item>
+    
+    <item>
+      <title>Put a SoC in it</title>
+      <link>https://kuleuven-diepenbeek.github.io/soc-lab/ch2_soc/1_soc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Nele Mentens and Jo Vliegen)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/soc-lab/ch2_soc/1_soc/</guid>
+      <description>Today&amp;rsquo;s designs often feature a System-on-Chip (SOC). This is a buzz word which means that a chip contains more than only a processing core. Typically there are more components like, for example: a timer, some memory, and a UART.
+The PYNQ Z2 board contains a ZYNQ FPGA. This type of FPGAs is a hybrid form which combines the traditional reconfigurable fabric of an FPGA, with a dedicated processor. In the case of the PYNQ Z2 the dedicated processor is an ARM Cortex A9.</description>
+    </item>
+    
+    <item>
+      <title>Embedded software</title>
+      <link>https://kuleuven-diepenbeek.github.io/soc-lab/ch2_soc/2_emb_software/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Nele Mentens and Jo Vliegen)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/soc-lab/ch2_soc/2_emb_software/</guid>
+      <description>Software The Xilinx software includes an integrated development environment (IDE). Before this can be used the generated hardware needs to be exported to an .xsa file. This file can be used in the Vitis IDE, which can be launched from the start menu or vivado. It is recommended to use a new Vitis workspace for each new software project.
+When creating a Vitis project it is required to use a different name than the name of the .</description>
+    </item>
+    
+    <item>
+      <title>Communication</title>
+      <link>https://kuleuven-diepenbeek.github.io/soc-lab/ch3_comm/1_communication/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Nele Mentens and Jo Vliegen)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/soc-lab/ch3_comm/1_communication/</guid>
+      <description>Up until this chapter you&amp;rsquo;ve created and implemented a design that drives lights. There are fancy colours and nice effects. Additionally the design is wrapped in an IP core. This IP core is used in a SOC to make the design programmable.
+Communication has been done through a commincator IP core. This component allows bidirectional communication to send instructions to processor. The processor forwards the instructions to the IP core.</description>
+    </item>
+    
+    <item>
+      <title>Multiple clocks</title>
+      <link>https://kuleuven-diepenbeek.github.io/soc-lab/ch3_comm/2_mult_clock/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Nele Mentens and Jo Vliegen)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/soc-lab/ch3_comm/2_mult_clock/</guid>
+      <description>A lot of designs, today, have multiple clock signals. Even in our rather simple exercise a second 100 kHZ pops up. When multiple clock signals are present, special attention is required !!
+Clock domain crossing All the components that are synchronised to one clock form a group that is called a clock domain. In our example we have two clock domains (the 100 MHz and the 100 kHz).
+When signals switch from one clock domain to the other, bad stuff can happen.</description>
+    </item>
+    
+    <item>
+      <title>Communicator</title>
+      <link>https://kuleuven-diepenbeek.github.io/soc-lab/ch3_comm/3_communicator/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Nele Mentens and Jo Vliegen)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/soc-lab/ch3_comm/3_communicator/</guid>
+      <description>With the protocol fixed and the attention to CDX (clock domain crossing), design and implementation can start.
+I2C slave The design you&#39;re making needs to be able to receive commands over I2C. For this purpose it has 2 external inputs: I2C_S_scl and I2C_S_sda. This component watches these two signals all the time. When a 32-bit command, data is received it flags this with a data valid signal.  I2C master The design you&#39;re making needs to be able to send commands over I2C.</description>
+    </item>
+    
+    <item>
+      <title>Driver</title>
+      <link>https://kuleuven-diepenbeek.github.io/soc-lab/ch4_esw/1_driver/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Nele Mentens and Jo Vliegen)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/soc-lab/ch4_esw/1_driver/</guid>
+      <description>In Chapter 2 - Embedded software some basics on the embedded software has been given. A bit more general information is explained using the communicator as example.
+Hardware mapping As chip designer for the communicator, you are the one that knows how you wired up the Memory-Mapped IO. In this example the mapping below is assumed.
+ MMIO map   The image above shows the use of 4 registers.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,4 @@
+{{ $_hugo_config := `{ "version": 1 }` }}
+<div class="source">
+     {{.Get "text" | default "Image source:" }} <a href="{{ .Get "src" }}"> {{ .Get "src" }} </a>
+</div>

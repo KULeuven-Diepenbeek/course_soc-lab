@@ -1,0 +1,55 @@
+languageCode = "en-uk"
+title = "System-on-Chip design and experimentation - labs"
+
+baseurl = "https://kuleuven-diepenbeek.github.io/soc-lab/"
+# fix for subdir baseurl, see https://discourse.gohugo.io/t/issue-when-baseurl-have-subdirectory/4088/7
+RelativeURLs=true
+CanonifyURLs=true
+
+theme = "hugo-theme-learn"
+publishDir = "docs"
+enableEmoji = true
+enableRobotsTXT = true
+pygmentsCodefences = true
+
+# for .Lastmod to work with .GitInfo: --enableGitInfo https://gohugo.io/variables/git/
+#enableGitInfo = true
+
+# for new Hugo 0.6x, markup changed to CommonMark.
+[markup]
+  defaultMarkdownHandler = "blackfriday"
+  [markup.blackFriday]
+    skipHTML = false
+
+[blackfriday]
+  hrefTargetBlank = true
+
+[taxonomies]
+    tag = "tags"
+
+[params]
+    disableComments = true
+    themeVariant = "kul"
+    disableInlineCopyToClipBoard = true
+    ordersectionsby = "weight"
+    disableLandingPageButton = true # Disable the "Home" link in the navigation menu
+
+# see https://learn.netlify.com/en/basics/configuration/
+[outputs]
+home = [ "HTML", "RSS", "JSON"]
+
+[Author]
+  name = "Nele Mentens and Jo Vliegen"
+  email = "<i>fname</i>.<i>lname</i>A T<i>kuleuven.be</i>"
+
+[[menu.shortcuts]] 
+name = "<i class='fa fa-university'></i> Toledo"
+identifier = "tol"
+url = "https://toledo.kuleuven.be/"
+weight = 10
+
+[[menu.shortcuts]] 
+name = "<i class='fa fa-university'></i> ECTS Sheet"
+identifier = "stud"
+url = "https://uhintra03.uhasselt.be/studiegidswww/opleidingsonderdeel.aspx?a=2022&i=3314"
+weight = 1

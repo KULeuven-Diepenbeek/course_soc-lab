@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>1: Let there be light on System-on-Chip design and experimentation - labs</title>
+    <link>https://kuleuven-diepenbeek.github.io/soc-lab/ch1_light/</link>
+    <description>Recent content in 1: Let there be light on System-on-Chip design and experimentation - labs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-uk</language>
+    <managingEditor>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Nele Mentens and Jo Vliegen)</managingEditor>
+    <webMaster>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Nele Mentens and Jo Vliegen)</webMaster><atom:link href="https://kuleuven-diepenbeek.github.io/soc-lab/ch1_light/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Let there be light</title>
+      <link>https://kuleuven-diepenbeek.github.io/soc-lab/ch1_light/1_light/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Nele Mentens and Jo Vliegen)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/soc-lab/ch1_light/1_light/</guid>
+      <description>To get started you are going to build a hardware design that brings on the LEDs of the PYNQ Z2 board. The architecture is very simple and should look something link the image below.
+Describing the hardware For the computer to understand what you are building, a Hardware Description Language (HDL) is required. In this lab, this will be VHDL. The environment that you are going to use to make the design is Vivado.</description>
+    </item>
+    
+    <item>
+      <title>Pre-scaling</title>
+      <link>https://kuleuven-diepenbeek.github.io/soc-lab/ch1_light/2_prescaling/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Nele Mentens and Jo Vliegen)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/soc-lab/ch1_light/2_prescaling/</guid>
+      <description>Pre-scaler One signal for which all hardware designers have to bow is the almighty CLOCK. In the previous exercise, you&amp;rsquo;ve already connect up with this signal. The clock on the PYNQ Z2 runs at 125MHz and therefore has a clock period of 8 ns.
+As the final aim of this lab is to flash lights like a Christmas tree, having fancy light effects change every 8 ns would be a little quick to the eyes.</description>
+    </item>
+    
+    <item>
+      <title>Turn up the colours</title>
+      <link>https://kuleuven-diepenbeek.github.io/soc-lab/ch1_light/3_colour/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Nele Mentens and Jo Vliegen)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/soc-lab/ch1_light/3_colour/</guid>
+      <description>The LEDs are nice, but not very festive. As the PYNQ Z2 board also has RBG LEDs, we can turn up the colours.
+RGB LEDs The RGB LEDs on the PYNQ Z2 have three inputs that can be driven by the FPGA. Although driving a single input gives a single colour, different colours can be shown.
+Look at all the colours Instead of driving a single input, multiple inputs can be driven as well.</description>
+    </item>
+    
+    <item>
+      <title>Bringing it all together</title>
+      <link>https://kuleuven-diepenbeek.github.io/soc-lab/ch1_light/4_together/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Nele Mentens and Jo Vliegen)</author>
+      <guid>https://kuleuven-diepenbeek.github.io/soc-lab/ch1_light/4_together/</guid>
+      <description>Up until this point you have made different hardware designs to achieve a number of features. These features will be used in the board as it functions as Christmas light.
+Before going to a processor or communication, things needs to be fixed. The most important thing, from a hardware point of view, is the interface. The following features will need to be present:
+Targets  LED 0 LED 1 LED 2 LED 3 RGB LED 0 RGB LED 1   Functions  fixed value on LED (0/1) blinking LED on certain frequencies the color on the RGB LEDs the brightness on the RGB LEDs    The configuration which will be applied to your PYNQ Z2, eventually, will come through communication.</description>
+    </item>
+    
+  </channel>
+</rss>
