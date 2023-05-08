@@ -22,7 +22,7 @@ According to the requirements, the I2C_slave component signals valid output data
 {{% figure src="/img/ch4/wavedrom_SRFF.png" %}}
 {{% wavedrom %}}
 
-The result of the SRFF is *always* stored in slv_reg0.
+The result of the SRFF is *always* stored in slv_reg3.
 
 
 ## Driver
