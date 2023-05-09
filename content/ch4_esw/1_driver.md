@@ -69,7 +69,6 @@ To make the our lives easier we can extend these defines in our own code.
 #define XMASCOMM_REG1_ADDRESS     (XMASCOMM_BASEADDRESS + 1*4)
 #define XMASCOMM_REG2_ADDRESS     (XMASCOMM_BASEADDRESS + 2*4)
 #define XMASCOMM_REG3_ADDRESS     (XMASCOMM_BASEADDRESS + 3*4)
-#define XMASCOMM_REG4_ADDRESS     (XMASCOMM_BASEADDRESS + 4*4)
 ```
 
 With these defines installed, the software developer does not have to bother himself/herself with these increments of four (as long as the processor is a 32-bitter). A typical thing you see in drivers is also the mapping of certain bits. Applying this to the example could look like:
@@ -87,7 +86,6 @@ In Chapter 2 the functions **Xil_In32()** and **Xil_Out32()** are explained. How
 #define XMASCOMM_CR               (*(volatile u32 *) XMASCOMM_REG1_ADDRESS)
 #define XMASCOMM_EXT2FPGA         (*(volatile u32 *) XMASCOMM_REG2_ADDRESS)
 #define XMASCOMM_SR               (*(volatile u32 *) XMASCOMM_REG3_ADDRESS)
-#define XMASCOMM_MSGCOUNTER       (*(volatile u32 *) XMASCOMM_REG4_ADDRESS)
 ```
 
 Let's quickly break this down for those whose C-skills are a bit rusty. The define **XMASCOMM_SR** make sure that, everywhere in the code this define is substituted by **(\*(volatile u32 \*) XMASCOMM_REG0_ADDRESS)**. XMASCOMM_REG0_ADDRESS contains the address of address 0. This value is type-cast to an unsigned 32-bit pointer. The keyword **volatile** states that the content of a variable can also be altered from another source. **This is important !!** Otherwise the optimisation of the C-compiler might optimise-out certain lines of C-code.
@@ -137,7 +135,7 @@ Let us assume the following two C-files:
 
 void xmascomm_send_command(uint32_t data);
 uint32_t xmascomm_wait_for_command(void);
-void xmascomm_check_received(void);
+uint32_t xmascomm_check_received(void);
 uint32_t xmascomm_fetch_received(void);
 
 
@@ -168,7 +166,7 @@ uint32_t xmascomm_wait_for_command(void) {
 }
 
 
-void xmascomm_check_received(void) {
+uint32_t xmascomm_check_received(void) {
   return (XMASCOMM_SR & XMASCOMM_SR_RXAVAILABLE);
 }
 
