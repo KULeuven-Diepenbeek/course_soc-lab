@@ -138,7 +138,7 @@ Let us assume the following two C-files:
 void xmascomm_send_command(uint32_t data);
 uint32_t xmascomm_wait_for_command(void);
 void xmascomm_check_received(void);
-uint32_t xmascomm_fetch_received(void)
+uint32_t xmascomm_fetch_received(void);
 
 
   {{< /highlight >}}
