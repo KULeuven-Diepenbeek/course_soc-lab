@@ -12,22 +12,22 @@
     <title>Driver :: System-on-Chip design and experimentation - labs</title>
 
     
-    <link href="../../css/nucleus.css?1683622366" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1683622366" rel="stylesheet">
-    <link href="../../css/hybrid.css?1683622366" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1683622366" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1683622366" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1683622366" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1683622366" rel="stylesheet">
-    <link href="../../css/theme.css?1683622366" rel="stylesheet">
-    <link href="../../css/tabs.css?1683622366" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1683622366" rel="stylesheet">
+    <link href="../../css/nucleus.css?1683623315" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1683623315" rel="stylesheet">
+    <link href="../../css/hybrid.css?1683623315" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1683623315" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1683623315" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1683623315" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1683623315" rel="stylesheet">
+    <link href="../../css/theme.css?1683623315" rel="stylesheet">
+    <link href="../../css/tabs.css?1683623315" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1683623315" rel="stylesheet">
     
-    <link href="../../css/theme-kul.css?1683622366" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1683623315" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1683622366"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1683623315"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -83,14 +83,14 @@ window.MathJax = {
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1683622366"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1683622366"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1683623315"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1683623315"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/course_soc-lab\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1683622366"></script>
+<script type="text/javascript" src="../../js/search.js?1683623315"></script>
 
     
   </div>
@@ -706,8 +706,7 @@ You might have noticed, however, that mapping of a certain component in the enti
 </span><span style="color:#75715e">#define XMASCOMM_REG0_ADDRESS     (XMASCOMM_BASEADDRESS + 0*4)
 </span><span style="color:#75715e">#define XMASCOMM_REG1_ADDRESS     (XMASCOMM_BASEADDRESS + 1*4)
 </span><span style="color:#75715e">#define XMASCOMM_REG2_ADDRESS     (XMASCOMM_BASEADDRESS + 2*4)
-</span><span style="color:#75715e">#define XMASCOMM_REG3_ADDRESS     (XMASCOMM_BASEADDRESS + 3*4)
-</span><span style="color:#75715e">#define XMASCOMM_REG4_ADDRESS     (XMASCOMM_BASEADDRESS + 4*4)</span></code></pre></div>
+</span><span style="color:#75715e">#define XMASCOMM_REG3_ADDRESS     (XMASCOMM_BASEADDRESS + 3*4)</span></code></pre></div>
 <p>With these defines installed, the software developer does not have to bother himself/herself with these increments of four (as long as the processor is a 32-bitter). A typical thing you see in drivers is also the mapping of certain bits. Applying this to the example could look like:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#define XMASCOMM_SR_RXAVAILABLE   0x00000001U
 </span><span style="color:#75715e">#define XMASCOMM_CR_TXSEND        0x00000001U
@@ -716,8 +715,7 @@ You might have noticed, however, that mapping of a certain component in the enti
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#define XMASCOMM_FPGA2EXT         (*(volatile u32 *) XMASCOMM_REG0_ADDRESS)
 </span><span style="color:#75715e">#define XMASCOMM_CR               (*(volatile u32 *) XMASCOMM_REG1_ADDRESS)
 </span><span style="color:#75715e">#define XMASCOMM_EXT2FPGA         (*(volatile u32 *) XMASCOMM_REG2_ADDRESS)
-</span><span style="color:#75715e">#define XMASCOMM_SR               (*(volatile u32 *) XMASCOMM_REG3_ADDRESS)
-</span><span style="color:#75715e">#define XMASCOMM_MSGCOUNTER       (*(volatile u32 *) XMASCOMM_REG4_ADDRESS)</span></code></pre></div>
+</span><span style="color:#75715e">#define XMASCOMM_SR               (*(volatile u32 *) XMASCOMM_REG3_ADDRESS)</span></code></pre></div>
 <p>Let&rsquo;s quickly break this down for those whose C-skills are a bit rusty. The define <strong>XMASCOMM_SR</strong> make sure that, everywhere in the code this define is substituted by <strong>(*(volatile u32 *) XMASCOMM_REG0_ADDRESS)</strong>. XMASCOMM_REG0_ADDRESS contains the address of address 0. This value is type-cast to an unsigned 32-bit pointer. The keyword <strong>volatile</strong> states that the content of a variable can also be altered from another source. <strong>This is important !!</strong> Otherwise the optimisation of the C-compiler might optimise-out certain lines of C-code.</p>
 
 <p>The attentive reader could now spot that <strong>(volatile u32 *) XMASCOMM_REG0_ADDRESS</strong> is explained. However, in the define is another <strong>(* &hellip; )</strong> encapsulating all this. This is used to <strong>dereference</strong> the pointer that was created.</p>
@@ -766,7 +764,7 @@ You might have noticed, however, that mapping of a certain component in the enti
 
 <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">xmascomm_send_command</span>(<span style="color:#66d9ef">uint32_t</span> data);
 <span style="color:#66d9ef">uint32_t</span> <span style="color:#a6e22e">xmascomm_wait_for_command</span>(<span style="color:#66d9ef">void</span>);
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">xmascomm_check_received</span>(<span style="color:#66d9ef">void</span>);
+<span style="color:#66d9ef">uint32_t</span> <span style="color:#a6e22e">xmascomm_check_received</span>(<span style="color:#66d9ef">void</span>);
 <span style="color:#66d9ef">uint32_t</span> <span style="color:#a6e22e">xmascomm_fetch_received</span>(<span style="color:#66d9ef">void</span>);
 
 
@@ -797,7 +795,7 @@ You might have noticed, however, that mapping of a certain component in the enti
 }
 
 
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">xmascomm_check_received</span>(<span style="color:#66d9ef">void</span>) {
+<span style="color:#66d9ef">uint32_t</span> <span style="color:#a6e22e">xmascomm_check_received</span>(<span style="color:#66d9ef">void</span>) {
   <span style="color:#66d9ef">return</span> (XMASCOMM_SR <span style="color:#f92672">&amp;</span> XMASCOMM_SR_RXAVAILABLE);
 }
 
@@ -1154,19 +1152,19 @@ You might have noticed, however, that mapping of a certain component in the enti
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1683622366"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1683622366"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1683622366"></script>
-    <script src="../../js/jquery.sticky.js?1683622366"></script>
-    <script src="../../js/featherlight.min.js?1683622366"></script>
-    <script src="../../js/highlight.pack.js?1683622366"></script>
+    <script src="../../js/clipboard.min.js?1683623315"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1683623315"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1683623315"></script>
+    <script src="../../js/jquery.sticky.js?1683623315"></script>
+    <script src="../../js/featherlight.min.js?1683623315"></script>
+    <script src="../../js/highlight.pack.js?1683623315"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1683622366"></script>
-    <script src="../../js/learn.js?1683622366"></script>
-    <script src="../../js/hugo-learn.js?1683622366"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1683623315"></script>
+    <script src="../../js/learn.js?1683623315"></script>
+    <script src="../../js/hugo-learn.js?1683623315"></script>
     
         
-            <script src="../../mermaid/mermaid.js?1683622366"></script>
+            <script src="../../mermaid/mermaid.js?1683623315"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
