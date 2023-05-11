@@ -137,6 +137,7 @@ void xmascomm_send_command(uint32_t data);
 uint32_t xmascomm_wait_for_command(void);
 uint32_t xmascomm_check_received(void);
 uint32_t xmascomm_fetch_received(void);
+void xmascomm_acknowledge_rx(void);
 
 
   {{< /highlight >}}
