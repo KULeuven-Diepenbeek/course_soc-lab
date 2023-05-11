@@ -161,7 +161,7 @@ uint32_t xmascomm_wait_for_command(void) {
 
   while(! xmascomm_check_received());
   rx = xmascomm_fetch_received();
-  xmas_comm_acknowledge_rx();
+  xmascomm_acknowledge_rx();
 
   return rx;
 }
