@@ -12,22 +12,22 @@
     <title>Put a SoC in it :: System-on-Chip design and experimentation - labs</title>
 
     
-    <link href="../../css/nucleus.css?1683804402" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1683804402" rel="stylesheet">
-    <link href="../../css/hybrid.css?1683804402" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1683804402" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1683804402" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1683804402" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1683804402" rel="stylesheet">
-    <link href="../../css/theme.css?1683804402" rel="stylesheet">
-    <link href="../../css/tabs.css?1683804402" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1683804402" rel="stylesheet">
+    <link href="../../css/nucleus.css?1705677244" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1705677244" rel="stylesheet">
+    <link href="../../css/hybrid.css?1705677244" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1705677244" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1705677244" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1705677244" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1705677244" rel="stylesheet">
+    <link href="../../css/theme.css?1705677244" rel="stylesheet">
+    <link href="../../css/tabs.css?1705677244" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1705677244" rel="stylesheet">
     
-    <link href="../../css/theme-kul.css?1683804402" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1705677244" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1683804402"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1705677244"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -83,14 +83,14 @@ window.MathJax = {
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1683804402"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1683804402"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1705677244"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1705677244"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/course_soc-lab\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1683804402"></script>
+<script type="text/javascript" src="../../js/search.js?1705677244"></script>
 
     
   </div>
@@ -251,13 +251,13 @@ window.MathJax = {
  
   
     
-    <li data-nav-id="/ch2_soc/" title="2: Put a SOC in it" class="dd-item
+    <li data-nav-id="/ch2_soc/" title="2: Put a SoC in it" class="dd-item
         parent
         
         
         ">
       <a href="../../ch2_soc/">
-          2: Put a SOC in it
+          2: Put a SoC in it
           
       </a>
       
@@ -582,7 +582,7 @@ window.MathJax = {
             
           
           
-            <a href='../../'>System-on-Chip design and experimentation  - lab</a> > <a href='../../ch2_soc/'>2: Put a SOC in it</a> > Put a SoC in it
+            <a href='../../'>System-on-Chip design and experimentation  - lab</a> > <a href='../../ch2_soc/'>2: Put a SoC in it</a> > Put a SoC in it
           
         
           
@@ -602,8 +602,7 @@ window.MathJax = {
 <li><a href="#hardware">Hardware</a>
 <ul>
 <li><a href="#ip-component">IP component</a></li>
-<li><a href="#soc">SOC</a></li>
-<li><a href="#finalising">Finalising</a></li>
+<li><a href="#soc">SoC</a></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -660,7 +659,7 @@ window.MathJax = {
   </div>
 </div>
 
-<p>The different components of the SOC have to be connected to each other. This is done through an on-chip bus. A heavily used interface is the <strong>Advanced eXtensible Interface (AXI)</strong>, which originates from ARM. The current version is AXI4. More information on AXI can be found online, starting from <a href="https://en.wikipedia.org/wiki/Advanced_eXtensible_Interface" target="_blank">wikipedia</a>.</p>
+<p>The different components of the SOC have to be connected to each other. This is done through an on-chip bus. A heavily used interface is the <strong>Advanced eXtensible Interface (AXI)</strong>, which originates from ARM. The current version is AXI5, which has some minor additions to AXI4. We will make use of <strong>AXI4</strong> during the labs. More information on AXI can be found online, starting from <a href="https://en.wikipedia.org/wiki/Advanced_eXtensible_Interface" target="_blank">wikipedia</a>.</p>
 
 <h3 id="ip-component">IP component</h3>
 
@@ -679,51 +678,304 @@ window.MathJax = {
 
 <p>For example: the 32-bit slave register 0 will be connected to the <strong>command</strong> input. The LSB of slave register 1 will be connected to thte <strong>command valid</strong>.</p>
 
+<!--
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
   <iframe src="https://www.youtube.com/embed/B-F_jVeAcfs?rel=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
 </div>
 
+-->
+
+
+<div class="notices warning" ><p>Make sure you have <strong>tested</strong> your design in the testbench before continuing.</p>
+</div>
+
+
+<div class="multicolumn">
+  <div class="column">
+The goal is to create an <b>AXI4 IP</b> of the xmas light design you have already made and tested. One approach would be to look up the specifications of AXI4 and start implementing the protocol. The documentation is freely availble online, but this is out-of-scope for this lab.
+<br>
+Luckily Xilinx provides tools to create an AXI4 IP more easily. By going to <b>tools->Create and package new IP</b> you can create a new AXI4 IP.
+
+
+</div>
+  <div class="column">
+
+<figure><img src="../../img/ch2/create_package_new_ip.png"/><figcaption>
+            <h4>Create and package new IP</h4>
+        </figcaption>
+</figure>
+
+
+  </div>
+</div>
+
+<p>You start by pressing next and in the next box you say &ldquo;Create a new AXI4 peripheral&rdquo;.</p>
+
+<figure><img src="../../img/ch2/create_AXI4.png"/><figcaption>
+            <h4>Create AXI4 peripheral</h4>
+        </figcaption>
+</figure>
+
+<p>In the details you give it a name and you can also give it a description.</p>
+
+
+<div class="notices note" ><p>Do not forget to change the <strong>IP Location</strong> or at note down where it is saved!</p>
+</div>
+
+
+<figure><img src="../../img/ch2/peripheral_details.png"/><figcaption>
+            <h4>Peripheral details</h4>
+        </figcaption>
+</figure>
+
+<div class="multicolumn">
+  <div class="column">
+<p>Here we can change the interfaces. You can add and remove AXI interfaces to create IPs with multiple interfaces. For our lab <b>1 AXI interface</b> is enough.</p>
+
+<p>For each interface we can configure the protocol. There is the chose between Lite, Full and Stream. We will use the <b>Lite</b> interface type.</p>
+
+<p>Then there is the interface mode. Were we can chose between Slave and Master. For our project the <b>ARM CPU</b> will be the <b>master</b>, so then <b>our IP</b> needs to be the <b>slave</b>.</p>
+
+<p>The data width for AXI4 Lite is always 32-bits, so we can&rsquo;t change this option.</p>
+
+<p>Memory size is only for full AXI4 and we are creating a AXI4 Lite IP.</p>
+
+<p>The <b>number of registers</b> is important. Here we need to think <strong>which inputs and outputs</strong> needs to come and go to the CPU?</p>
+
+<p>If we look at the entity we see this</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vhdl" data-lang="vhdl"><span style="color:#66d9ef">entity</span> <span style="color:#a6e22e">xmas_light</span> <span style="color:#66d9ef">is</span>
+  <span style="color:#66d9ef">port</span> (
+    reset <span style="color:#f92672">:</span> <span style="color:#66d9ef">in</span> <span style="color:#66d9ef">STD_LOGIC</span>;
+    clock <span style="color:#f92672">:</span> <span style="color:#66d9ef">in</span> <span style="color:#66d9ef">STD_LOGIC</span>;
+    command <span style="color:#f92672">:</span> <span style="color:#66d9ef">in</span> <span style="color:#66d9ef">STD_LOGIC_VECTOR</span>(<span style="color:#ae81ff">31</span> <span style="color:#66d9ef">downto</span> <span style="color:#ae81ff">0</span>);
+    command_valid <span style="color:#f92672">:</span> <span style="color:#66d9ef">in</span> <span style="color:#66d9ef">STD_LOGIC</span>;
+    RGB0 <span style="color:#f92672">:</span> <span style="color:#66d9ef">out</span> <span style="color:#66d9ef">STD_LOGIC_VECTOR</span>(<span style="color:#ae81ff">2</span> <span style="color:#66d9ef">downto</span> <span style="color:#ae81ff">0</span>);
+    RGB1 <span style="color:#f92672">:</span> <span style="color:#66d9ef">out</span> <span style="color:#66d9ef">STD_LOGIC_VECTOR</span>(<span style="color:#ae81ff">2</span> <span style="color:#66d9ef">downto</span> <span style="color:#ae81ff">0</span>);
+    LEDs <span style="color:#f92672">:</span> <span style="color:#66d9ef">out</span> <span style="color:#66d9ef">STD_LOGIC_VECTOR</span>(<span style="color:#ae81ff">3</span> <span style="color:#66d9ef">downto</span> <span style="color:#ae81ff">0</span>)
+  );
+<span style="color:#66d9ef">end</span> <span style="color:#a6e22e">xmas_light</span>;</code></pre></div>
+<p>Which of those signals do we get from the register/CPU?</p>
+
+<ul>
+<li><strong>reset</strong>: this is a <strong>global</strong> signals which we get from the IP</li>
+<li><strong>clock</strong>: the <strong>IP is clocked</strong> and we use this same clock, we can later configure the clock speed of this clock</li>
+<li><strong>command</strong>: this is the <strong>command that drives the XMAS lights</strong></li>
+<li><strong>commmand_valid</strong>: this indicates if <strong>when we can read</strong> this command</li>
+<li><strong>RGB0</strong>: This is the <strong>output</strong> to RGB led 0</li>
+<li><strong>RGB1</strong>: This is the <strong>output</strong> to RGB led 1</li>
+<li><strong>Leds</strong>: This is the <strong>output</strong> to LEDs</li>
+</ul>
+
+<p><strong>Reset</strong> and <strong>clock</strong> are <strong>global</strong> signals.</p>
+
+<p>The <strong>CPU</strong> needs to <strong>supply</strong> the <strong>command</strong> and the <strong>command_valid</strong> signals.</p>
+
+<p>The <strong>outputs</strong> needs to be <strong>added to the IP I/O</strong> ports!</p>
+
+<p>So we only need registers for the <strong>32-bit command</strong> signal and the <strong>command_valid</strong> signal. This means that <strong>2 registers</strong> are sufficient. Vivado tells us that the <strong>minimum is 4</strong>, so we will use 4 registers.</p>
+
+
+</div>
+  <div class="column">
+<figure><img src="../../img/ch2/add_interface.png"/><figcaption>
+            <h4>Create and package new IP</h4>
+        </figcaption>
+</figure>
+
+  </div>
+</div>
+
+<p>At the last page we say we want to <strong>edit the IP</strong>.</p>
+
+<figure><img src="../../img/ch2/edit_ip.png"/><figcaption>
+            <h4>Create peripheral</h4>
+        </figcaption>
+</figure>
+
+<p>Now it generates the template code for a AXI4 light IP block.</p>
+
+<div class="multicolumn">
+  <div class="column">
+<p>Vivado has a <em>nice</em> feature to save storage space when you create a lot of IP blocks. When you made your IP and closes the project it will decide that you&rsquo;re finished with it and do not want to change it again, so it will decide to remove the project file to change the IP. This is very frustrating when you want to make changes later, because you will have to create the new IP from scratch.</p>
+
+<p>Luckily we can disable this feature by clicking on settings on the left and under IP-&gt;Packager ticking the box &ldquo;delete project after packaging&rdquo; off.</p>
+
+<div class="notices note" ><p>When creating a new IP later, verify if the setting is still turned off!</p>
+</div>
+
+<p></div>
+  <div class="column"></p>
+
+<figure><img src="../../img/ch2/delete_project_after_packaging.png"/><figcaption>
+            <h4>Delete project packager setting</h4>
+        </figcaption>
+</figure>
+
+<p></div>
+</div></p>
+
+<p>Now we have a project with 2 files. For me they are called &ldquo;xmas_light_v1_0&rdquo; and &ldquo;xmas_light_v1_0_S00_AXI&rdquo;. Here we will need to add our XMAS light somehow. xmas_light_v1_0_S00_AXI is the main file and xmas_light_v1_0 is just a small wrapper.</p>
+
+
+<div class="notices note" ><p>If your <strong>IP</strong> is <strong>in Verilog</strong> instead of VHDL you can go to the <strong>settings</strong> and changed under general change the <strong>target language</strong> from verilog to <strong>VHDL</strong>.</p>
+</div>
+
+
+<p>Some things to note in the generated code before inserting our design.</p>
+
+<ul>
+<li>There are 4 registers (as configured) called slv_reg0..3.</li>
+<li>There is a clock called S_AXI_ACLK</li>
+<li>There is a <strong>active low reset</strong> called S_AXI_ARESETN</li>
+<li>The code <strong>writes</strong> to <strong>the registers</strong> by default, if your design writes to one of these registers. If your design writes to registers, you need to <strong>make sure</strong> there are <strong>no double drivers</strong> and remove the code which writes to them.</li>
+</ul>
+
+<p>At the <strong>bottom of the file</strong> xmas_light_v1_0_S00_AXI you have a section where they tell you to add your code. So that is where we will put our design.
+But first <strong>add the sources</strong>, you can use add files and select the files from the other project. I recommend you thick the box <strong>copy sources into IP directory</strong> to make sure you copy the files to this project.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vhdl" data-lang="vhdl">	<span style="color:#75715e">-- Add user logic here</span>
+
+	<span style="color:#75715e">-- User logic ends</span></code></pre></div>
+<p>Now we need to think how we want to map the I/O of our design to the registers. We will use slv_reg0 as our command registers and use the first bit of slv_reg1 as the command_valid signal.</p>
+
+<p>Note that the our designs expects an <strong>active high reset</strong> so we need to invert the reset signal.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vhdl" data-lang="vhdl">	<span style="color:#75715e">-- Add user logic here</span>
+	reset_i <span style="color:#f92672">&lt;=</span> <span style="color:#66d9ef">not</span>(S_AXI_ARESETN);
+    xmas_light_inst00<span style="color:#f92672">:</span> <span style="color:#66d9ef">component</span> <span style="color:#a6e22e">xmas_light</span> <span style="color:#66d9ef">port</span> <span style="color:#66d9ef">map</span> (
+    reset <span style="color:#f92672">=&gt;</span> reset_i,
+    clock <span style="color:#f92672">=&gt;</span> S_AXI_ACLK,
+    command <span style="color:#f92672">=&gt;</span> slv_reg0,
+    command_valid <span style="color:#f92672">=&gt;</span> slv_reg1(<span style="color:#ae81ff">0</span>),
+    RGB0 <span style="color:#f92672">=&gt;</span> RGB0,
+    RGB1 <span style="color:#f92672">=&gt;</span> RGB1,
+    LEDs <span style="color:#f92672">=&gt;</span> LEDs
+  );
+	<span style="color:#75715e">-- User logic ends</span></code></pre></div>
+<p>Of course if we <strong>instantiate a component and use a signal</strong> we also have to <strong>add</strong> this to the <strong>architecture</strong>.</p>
+
+<p>And if we use output ports it also has to be added to entity declaration, Xilinx again give us a spot to add those.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-vhdl" data-lang="vhdl">		<span style="color:#75715e">-- Users to add ports here</span>
+            RGB0 <span style="color:#f92672">:</span> <span style="color:#66d9ef">out</span> <span style="color:#66d9ef">STD_LOGIC_VECTOR</span>(<span style="color:#ae81ff">2</span> <span style="color:#66d9ef">downto</span> <span style="color:#ae81ff">0</span>);
+            RGB1 <span style="color:#f92672">:</span> <span style="color:#66d9ef">out</span> <span style="color:#66d9ef">STD_LOGIC_VECTOR</span>(<span style="color:#ae81ff">2</span> <span style="color:#66d9ef">downto</span> <span style="color:#ae81ff">0</span>);
+            LEDs <span style="color:#f92672">:</span> <span style="color:#66d9ef">out</span> <span style="color:#66d9ef">STD_LOGIC_VECTOR</span>(<span style="color:#ae81ff">3</span> <span style="color:#66d9ef">downto</span> <span style="color:#ae81ff">0</span>);
+		<span style="color:#75715e">-- User ports ends</span></code></pre></div>
+<p>Now we also need to add these port to the other file <strong>xmas_light_v1_0</strong>. Here you need to <strong>add</strong> these to the <strong>entity</strong>, the <strong>component</strong> declaration and the <strong>port map</strong>.</p>
 
 
 <div class="notices note" ><p>Don&rsquo;t forget to <strong>note down</strong> the connections to the registers; and to <strong>wire out</strong> external signals all the way up !!!</p>
 </div>
 
 
-<h3 id="soc">SOC</h3>
+<p>Now we have all code in the IP and need to package it so it can be used in an other project.</p>
 
-<p>For now, the <strong>communication</strong> IP block is not used, because it is not existing yet. When that IP block is also finished, the SOC needs to be recreated.</p>
+<p>On the left we press <strong>Edit packaged IP</strong>. Here we see all the packaging steps.</p>
 
+<p>In all of the packaging steps where there is not a green check mark you press <strong>merge changes from &hellip;</strong>.</p>
+
+<figure><img src="../../img/ch2/package_ip_merge.png"/><figcaption>
+            <h4>merge changes</h4>
+        </figcaption>
+</figure>
+
+<p>When do you can press the <strong>Re-package</strong> IP button!</p>
+
+<figure><img src="../../img/ch2/repackage_ip.png"/><figcaption>
+            <h4>re-package IP</h4>
+        </figcaption>
+</figure>
+
+
+<div class="notices warning" ><p>If your <strong>Vivado</strong> version is <strong>newer</strong> then <strong>2020.1</strong> on Windows you might need to check the <strong>FAQ page</strong> to fix the makefile for later in Vitis</p>
+</div>
+
+
+<h3 id="soc">SoC</h3>
+
+<p>Now we need to create what the course is all about a System-On-Chip (SoC), look at the course name!</p>
+
+<p>For now, the <strong>communication</strong> IP block is not used, because it does not exist yet. So we need to recreate the SoC once it is ready!</p>
+
+<p>We start by <strong>creating a new vivado project</strong>. I typically give it a name ending with _soc, but feel free to do something else.</p>
+
+<p>This Vivado project is special, you will <strong>not</strong> write VHDL, but you will <strong>create a block design</strong>.</p>
+
+<p>We can press the button <strong>Create block design</strong> on the left side and press ok. Here we see our block design, which is currently empty. First we add the <strong>ZYNQ7 Proccesing System</strong> by first clicking the <strong>+</strong> button on top or right mouse button <strong>add IP</strong>. Once we have this we also want to add <strong>our IP</strong>, but if you search for it <strong>you will not find it</strong>!</p>
+
+<p>This is because we still need to <strong>add the IP repository</strong> to the new project so it knows where to look for our IP. You do this in the settings on the left then IP-&gt;Repository.</p>
+
+<p>When added it will show you that you how many IPs are found in the IP repository.</p>
+
+<figure><img src="../../img/ch2/ip_repository.png"/><figcaption>
+            <h4>IP repostiry</h4>
+        </figcaption>
+</figure>
+
+<p>Now we <strong>add</strong> our <strong>XMAS IP</strong> to the block diagram.</p>
+
+<figure><img src="../../img/ch2/block_diagram_unconnected.png"/><figcaption>
+            <h4>Unconnceted block diagram</h4>
+        </figcaption>
+</figure>
+
+<p>If you look on top you should have 2 new buttons. One is <em>Run Block Automation</em> and the other <em>Run connection automation</em>. Both will help us connecting the IP in the right way.
+You can press <strong>run block automation</strong> and here you can configure a few parameters of the processing system. You can just <strong>press OK</strong> here, the default is good. Now you will see it connected the DDR and FIXED_IO to outside ports.</p>
+
+<p>Now we can also press <strong>run connection automation</strong>. Here we can specify which clock to use, but we have only 1 clock which comes from the <em>processing system</em>, so we can <strong>press OK</strong>. Now we will see it connected the AXI side of our IP through some blocks to the processing system. It generated an AXI interconnect block to interconnect the AXI bus from the processing system to our core. And it generated a <em>processor system reset</em> block which handles the reset of the AXI bus.</p>
+
+<p>Note that we use the <em>FCLK_CLK0</em> from the Processing System as our clock. But at which frequency does it operate?</p>
+
+<p>By <strong>double clicking</strong> the <strong>processing system</strong> we can configure it. It has a lot of options from I/O interfaces to memory. But we are interested in the programmable logic or PL clock. On the left we click <strong>Clock configuration</strong> and got to <strong>PL Fabrick Clocks</strong>. Here we can change the clock of <strong>FCLK_CLK0</strong>, we use a clock of <strong>100 MHz</strong> for our project.</p>
+
+
+<div class="notices note" ><p>If your block design does not look organized you can press the <strong>rotating arrow</strong> button called <em>Regenerate Layout</em> to let Vivado reorder the block locations.</p>
+</div>
+
+
+<p>You might also have noticed that our <strong>IP output signals</strong> are not connected. We can fix this by <strong>selecting them all</strong> by <strong>holding CTRL</strong> and do <strong>right mouse button make external</strong>. Now it created output pins for those signals. But we still need to add these signals to our <strong>.xdc file</strong>. The DDR and FIXED_IO for the processing system are automatically included.</p>
+
+
+<div class="notices note" ><p>We do <strong>not</strong> need to <strong>define a clock</strong> in the <strong>.xdc</strong> file because we use the clock of the processing system!</p>
+</div>
+
+
+<p>Also note that there is a <strong>Address editor</strong> tab. Here is defined in which area of the memory our IP sits. Remember we were creating a MMIO (Memory-Mapped IO). This is were we can configure which memory location will be used for which IP. What we will do in <strong>software</strong> is <strong>write</strong> to <strong>this address</strong>, on my example 43C0_0000, and it will appear in <strong>slv_reg0</strong> of our IP. This we connected to <strong>command</strong> input of <strong>our design</strong>!</p>
+
+<figure><img src="../../img/ch2/address_editor.png"/><figcaption>
+            <h4>Address editor</h4>
+        </figcaption>
+</figure>
+
+<p>Once the <b>block design</b> is finished, a <b>HDL wrapper</b> needs to be generated. This can be done by right clicking on the block design and letting Vivado manage the wrapper. Finally, the toolchain can be ran: synthesis, implementation, bitstream generation.</p>
+
+
+<div class="notices warning" ><p>Verify that, with the bitstream generated, there are no timing violations !!</p>
+</div>
+
+
+<p>If everything went well you should have a final design similar to this.</p>
+
+<figure><img src="../../img/ch2/full_block_diagram.png"/><figcaption>
+            <h4>Block diagram finished</h4>
+        </figcaption>
+</figure>
+
+<!-- 
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
   <iframe src="https://www.youtube.com/embed/s3X2rotphUA?rel=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
 </div>
 
+-->
 
 
 <div class="notices note" ><p>Depending on your version of the tools, the layout might look different. Also different labels might be used on the buttons, but the general flow should be similar (if not identical).</p>
 </div>
 
 
-<h3 id="finalising">Finalising</h3>
+<p>If all is well, the hardware design can be <b>exported</b>. Make sure you tick the <strong>export bitstream</strong> check-box so the freshly generated bitstream is present in the Vitis environment.</p>
 
-<div class="multicolumn">
-  <div class="column">
-Once the <b>block design</b> is finished, a <b>HDL wrapper</b> needs to be generated. This can be done by right clicking on the block design. Finally, the toolchain can be ran: synthesis, implementation, bitstream generation.
-
-
-<div class="notices warning" ><p>Verify that, with the bitstream generated, there are no timing violations !!</p>
-</div>
-
-If all is well, the hardware design can be <b>exported</b>. Make sure you tick the "export bitstream" check-box so the freshly generated bitstream is present in the SDK environment.
-
-  </div>
-  <div class="column">
-    <figure><img src="../../img/ch2/export_hardware.png"/>
+<figure><img src="../../img/ch2/export_hardware.png"/>
 </figure>
-
-  </div>
-</div>
 
 
 <footer class="footline">
@@ -1045,7 +1297,7 @@ If all is well, the hardware design can be <b>exported</b>. Make sure you tick t
 	 
 	 
 		
-			<a class="nav nav-prev" href="../../ch2_soc/" title="2: Put a SOC in it"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="../../ch2_soc/" title="2: Put a SoC in it"> <i class="fa fa-chevron-left"></i></a>
 		
 		
 			<a class="nav nav-next" href="../../ch2_soc/2_emb_software/" title="Embedded software" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
@@ -1058,19 +1310,19 @@ If all is well, the hardware design can be <b>exported</b>. Make sure you tick t
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1683804402"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1683804402"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1683804402"></script>
-    <script src="../../js/jquery.sticky.js?1683804402"></script>
-    <script src="../../js/featherlight.min.js?1683804402"></script>
-    <script src="../../js/highlight.pack.js?1683804402"></script>
+    <script src="../../js/clipboard.min.js?1705677244"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1705677244"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1705677244"></script>
+    <script src="../../js/jquery.sticky.js?1705677244"></script>
+    <script src="../../js/featherlight.min.js?1705677244"></script>
+    <script src="../../js/highlight.pack.js?1705677244"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1683804402"></script>
-    <script src="../../js/learn.js?1683804402"></script>
-    <script src="../../js/hugo-learn.js?1683804402"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1705677244"></script>
+    <script src="../../js/learn.js?1705677244"></script>
+    <script src="../../js/hugo-learn.js?1705677244"></script>
     
         
-            <script src="../../mermaid/mermaid.js?1683804402"></script>
+            <script src="../../mermaid/mermaid.js?1705677244"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
