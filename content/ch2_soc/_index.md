@@ -1,11 +1,11 @@
 ---
-title: '2: Put a SOC in it'
+title: '2: Put a SoC in it'
 chapter: true
 weight: 20
 draft: false
 ---
 
-# Put a SOC in it
+# Put a SoC in it
 
 {{% notice warning %}}
 ~~**September 13, 2020:** ARM is bought by NVIDIA~~ ([read more](https://nvidianews.nvidia.com/news/nvidia-to-acquire-arm-for-40-billion-creating-worlds-premier-computing-company-for-the-age-of-ai)) ([termination](https://nvidianews.nvidia.com/news/nvidia-and-softbank-group-announce-termination-of-nvidias-acquisition-of-arm-limited))
