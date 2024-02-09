@@ -18,13 +18,11 @@ For the computer to understand what you are building, a Hardware Description Lan
 * configuring the FPGA
 
 #### Install the Vivado software
-The Vivado software can be downloaded through the [Xilinx website](https://www.xilinx.com/support/download.html). You will need an account at the website, but you can make one for free. The software can be downloaded for free, but certainly isn't **free**. A license is required to enjoy all the features of the design suite, but The FPGA on the {{% pynq %}} is free to use. It is recommended to install Vivado 2020.2 or older. Make sure to install Vitis, because we will be using it during the labs. 
+The Vivado software can be downloaded through the [Xilinx website](https://www.xilinx.com/support/download.html). You will need an account at the website, but you can make one for free. The software can be downloaded for free, but certainly isn't **free**. A license is required to enjoy all the features of the design suite, but The FPGA on the {{% pynq %}} is free to use. Make sure to **install Vitis**, because we will be using it during the labs. 
 
-<!-- 
 {{% notice note %}}
-Contact the professor by mail to ask for a license. In this mail you need to provide: <br/>1) Which **OS** you are running, <br/>2) Whether you have a **32 or 64-bit** machine, and <br/>3) The **MAC address** of your networking interface.
+Know that during the installation the **only devices** you will need for this lab is under SoCs the **Zynq-7000** devices. By not installing all the other devices you can save large amounts of disk space.
 {{% /notice %}}
--->
 
 #### Install the {{% pynq %}} board drivers
 Vivado is *board aware*. Alas, the {{% pynq %}} board is not by default known by the software. Additional metadata is to be added to your Xilinx Installation. To do this you need to download the board files from [here](https://www.tulembedded.com/FPGA/ProductsPYNQ-Z2.html). Later we also require the "Master XDC" file. You need to extract the board files archive in "<Xilinx installation directory>\Vivado\<version>\data\boards\board_files", if the directory doesn't exist you need to create it. After extracting you should have a folder called pynq-z2 inside the board_files directory. For old Vivado versions you can follow the instructions [here](https://pynq.readthedocs.io/en/v2.5.1/overlay_design_methodology/board_settings.html?highlight=board#vivado-board-files). Note that the download links are dead.
