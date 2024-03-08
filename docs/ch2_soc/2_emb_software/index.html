@@ -12,22 +12,22 @@
     <title>Embedded software :: System-on-Chip design and experimentation - labs</title>
 
     
-    <link href="../../css/nucleus.css?1707469859" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1707469859" rel="stylesheet">
-    <link href="../../css/hybrid.css?1707469859" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1707469859" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1707469859" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1707469859" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1707469859" rel="stylesheet">
-    <link href="../../css/theme.css?1707469859" rel="stylesheet">
-    <link href="../../css/tabs.css?1707469859" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1707469859" rel="stylesheet">
+    <link href="../../css/nucleus.css?1709889172" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1709889172" rel="stylesheet">
+    <link href="../../css/hybrid.css?1709889172" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1709889172" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1709889172" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1709889172" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1709889172" rel="stylesheet">
+    <link href="../../css/theme.css?1709889172" rel="stylesheet">
+    <link href="../../css/tabs.css?1709889172" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1709889172" rel="stylesheet">
     
-    <link href="../../css/theme-kul.css?1707469859" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1709889172" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1707469859"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1709889172"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -83,14 +83,14 @@ window.MathJax = {
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1707469859"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1707469859"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1709889172"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1709889172"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/course_soc-lab\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1707469859"></script>
+<script type="text/javascript" src="../../js/search.js?1709889172"></script>
 
     
   </div>
@@ -603,6 +603,7 @@ window.MathJax = {
 <ul>
 <li>
 <ul>
+<li><a href="#workspace-creation">Workspace creation</a></li>
 <li><a href="#a-hardware-platform">A hardware platform</a></li>
 <li><a href="#the-user-application">The user application</a></li>
 </ul></li>
@@ -642,19 +643,41 @@ window.MathJax = {
 
 <h2 id="software">Software</h2>
 
-<p>The Xilinx software includes an integrated development environment (IDE). Before this can be used the generated hardware needs to be <strong>exported</strong> to an <strong>.xsa</strong> file. This file can be used in the <strong>Vitis IDE</strong>, which can be launched from the start menu or vivado. It is recommended to use a new Vitis workspace for each new software project.</p>
+<p>The Xilinx software includes an integrated development environment (IDE). Before this can be used the generated hardware needs to be <strong>exported</strong> to an <strong>.xsa</strong> file. This file can be used in the <strong>Vitis IDE</strong>, which can be launched from the start menu or vivado.</p>
 
-<p>When creating a Vitis project it is required to use a different name than the name of the .xsa file.</p>
+<!-- 
+When creating a Vitis project it is required to use a different name than the name of the .xsa file.
 
-<p>The software in SDK is built in three steps: 1) a hardware platform, 2) a board support package, and 3) the user application.</p>
+The software in SDK is built in three steps: 1) a hardware platform, 2) a board support package, and 3) the user application.
 
-<p>The video is for the old Xilinx SDK, but most information still holds true for the Vitis IDE.</p>
+The video is for the old Xilinx SDK, but most information still holds true for the Vitis IDE.
 
 
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
   <iframe src="https://www.youtube.com/embed/w7Jjo1oNRtQ?rel=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
 </div>
+\
+-->
 
+<h4 id="workspace-creation">Workspace creation</h4>
+
+<p>When starting Vitis you&rsquo;re greeted with the window to create a workspace. It is recommended to use a single workspace per System-On-Chip project and .xsa file.</p>
+
+
+<div class="notices warning" ><p>Make sure that in your <strong>path</strong> of the Vitis workspace there is <strong>no spaces</strong>! Otherwise your project will later not compile.</p>
+</div>
+
+
+<p>After selecting a suitable workspace location you can create a <strong>Application project</strong>. Then you press next to create a project.</p>
+
+<p>Now it will ask for your platform. Here you can use a hardware platform that is built-in, but we have create our own hardware platform. So we need to press <strong>Create a new platform from hardware (XSA)</strong>. Here you select the <strong>.xsa</strong> file you <strong>exported from Vivado</strong> previously.</p>
+
+
+<div class="notices warning" ><p>When giving a name to your application project, make sure to <strong>NOT</strong> give it the <strong>same name as your IP or Vivado project</strong>.</p>
+</div>
+
+
+<p>Now you can press next a couple of times and create a demo application Hello World!</p>
 
 <h4 id="a-hardware-platform">A hardware platform</h4>
 
@@ -748,133 +771,7 @@ The board support package generates, among a lot of other things, a file <strong
 
 <h3 id="example">Example</h3>
 
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
-<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">  9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 33
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 34
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 35
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 36
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 37
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 38
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 39
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 40
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 41
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 42
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 43
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 44
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 45
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 46
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 47
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 48
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 49
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 50
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 51
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 52
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 53
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 54
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 55
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 56
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 57
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 58
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 59
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 60
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 61
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 62
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 63
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 64
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 65
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 66
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 67
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 68
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 69
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 70
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 71
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 72
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 73
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 74
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 75
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 76
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 77
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 78
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 79
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 80
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 81
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 82
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 83
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 84
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 85
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 86
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 87
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 88
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 89
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 90
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 91
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 92
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 93
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 94
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 95
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 96
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 97
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 98
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 99
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">100
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">101
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">102
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">103
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">104
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">105
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">106
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">107
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">108
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">109
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">110
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">111
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">112
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">113
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">114
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">115
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">116
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">117
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">118
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">119
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">120
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">121
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">122
-</span></code></pre></td>
-<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;xparameters.h&#34; /* from bsp; contains a LOT of defines */</span><span style="color:#75715e">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C"><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;xparameters.h&#34; /* from bsp; contains a LOT of defines */</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;xil_io.h&#34;      /* from bsp; IO functions*/</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;xuartps_hw.h&#34;  /* from bsp; UART driver functions*/</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span>
@@ -995,9 +892,7 @@ The board support package generates, among a lot of other things, a file <strong
   Xil_Out32(XMAS_LIGHT_COMMAND, data);
   Xil_Out32(XMAS_LIGHT_CR, <span style="color:#ae81ff">0x00000001</span>);
   Xil_Out32(XMAS_LIGHT_CR, <span style="color:#ae81ff">0x00000000</span>);
-}</code></pre></td></tr></table>
-</div>
-</div>
+}</code></pre></div>
 
 <p>From the SDK software you can program the FPGA. This needs to be done first. After configuring the bitstream, the software can be run <strong>on the hardware</strong>. This should look something like the example below.</p>
 
@@ -1351,19 +1246,19 @@ The board support package generates, among a lot of other things, a file <strong
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1707469859"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1707469859"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1707469859"></script>
-    <script src="../../js/jquery.sticky.js?1707469859"></script>
-    <script src="../../js/featherlight.min.js?1707469859"></script>
-    <script src="../../js/highlight.pack.js?1707469859"></script>
+    <script src="../../js/clipboard.min.js?1709889172"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1709889172"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1709889172"></script>
+    <script src="../../js/jquery.sticky.js?1709889172"></script>
+    <script src="../../js/featherlight.min.js?1709889172"></script>
+    <script src="../../js/highlight.pack.js?1709889172"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1707469859"></script>
-    <script src="../../js/learn.js?1707469859"></script>
-    <script src="../../js/hugo-learn.js?1707469859"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1709889172"></script>
+    <script src="../../js/learn.js?1709889172"></script>
+    <script src="../../js/hugo-learn.js?1709889172"></script>
     
         
-            <script src="../../mermaid/mermaid.js?1707469859"></script>
+            <script src="../../mermaid/mermaid.js?1709889172"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
