@@ -8,15 +8,35 @@ draft: false
 ## Software
 
 
-The Xilinx software includes an integrated development environment (IDE). Before this can be used the generated hardware needs to be **exported** to an **.xsa** file. This file can be used in the **Vitis IDE**, which can be launched from the start menu or vivado. It is recommended to use a new Vitis workspace for each new software project. 
+The Xilinx software includes an integrated development environment (IDE). Before this can be used the generated hardware needs to be **exported** to an **.xsa** file. This file can be used in the **Vitis IDE**, which can be launched from the start menu or vivado. 
 
+<!-- 
 When creating a Vitis project it is required to use a different name than the name of the .xsa file.
 
 The software in SDK is built in three steps: 1) a hardware platform, 2) a board support package, and 3) the user application.
 
 The video is for the old Xilinx SDK, but most information still holds true for the Vitis IDE.
 
-{{< youtube id="w7Jjo1oNRtQ?rel=0" >}}
+{{< youtube id="w7Jjo1oNRtQ?rel=0" >}}\
+-->
+
+#### Workspace creation
+When starting Vitis you're greeted with the window to create a workspace. It is recommended to use a single workspace per System-On-Chip project and .xsa file. 
+
+{{% notice warning %}}
+Make sure that in your **path** of the Vitis workspace there is **no spaces**! Otherwise your project will later not compile.
+{{% /notice %}}
+
+After selecting a suitable workspace location you can create a **Application project**. Then you press next to create a project.
+
+Now it will ask for your platform. Here you can use a hardware platform that is built-in, but we have create our own hardware platform. So we need to press **Create a new platform from hardware (XSA)**. Here you select the **.xsa** file you **exported from Vivado** previously.
+
+{{% notice warning %}}
+When giving a name to your application project, make sure to **NOT** give it the **same name as your IP or Vivado project**.
+{{% /notice %}}
+
+Now you can press next a couple of times and create a demo application Hello World!
+
 
 #### A hardware platform
 
@@ -114,7 +134,7 @@ For the sake of completeness it is mentioned there is also a similar reading fun
 
 ### Example
 
-{{< highlight C "linenos=true,linenostart=1" >}}
+{{< highlight C >}}
 #include "xparameters.h" /* from bsp; contains a LOT of defines */
 #include "xil_io.h"      /* from bsp; IO functions*/
 #include "xuartps_hw.h"  /* from bsp; UART driver functions*/

@@ -243,7 +243,7 @@ When do you can press the **Re-package** IP button!
 {{% figure src="/img/ch2/repackage_ip.png" title="re-package IP" %}}
 
 {{% notice warning %}}
-If your **Vivado** version is **newer** then **2020.1** on Windows you might need to check the **FAQ page** to fix the makefile for later in Vitis
+If your **Vivado** version is **newer** then **2020.1** and older then **2023.2** on Windows you might need to check the **FAQ page** to fix the makefile for later in Vitis.
 {{% /notice %}}
 
 ### SoC

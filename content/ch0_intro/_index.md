@@ -12,7 +12,7 @@ Every **light** in the chain will be built using a {{% pynq %}} board.
 
 ![The PYNQ-Z2](/img/ch0/pynq_z2.jpg)
 
-A master will control the complete system and the final setup is depicted below. Every single connection operates with the **UART** protocol.
+A master will control the complete system and the final setup is depicted below. Every single connection operates with the a **extremely simplified I2C** protocol.
 
 ![The PYNQ-Z2](/img/ch0/setup.jpg)
 
