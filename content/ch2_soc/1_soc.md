@@ -295,7 +295,7 @@ Also note that there is a **Address editor** tab. Here is defined in which area 
 Once the <b>block design</b> is finished, a <b>HDL wrapper</b> needs to be generated. This can be done by right clicking on the block design and letting Vivado manage the wrapper. Finally, the toolchain can be ran: synthesis, implementation, bitstream generation.
 
 {{% notice warning %}}
-Verify that, with the bitstream generated, there are no timing violations !!
+Verify that, with the bitstream generated, there are **no timing violations** !!
 {{% /notice %}}
 
 If everything went well you should have a final design similar to this.
