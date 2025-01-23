@@ -14,7 +14,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <author>&lt;i&gt;fname&lt;/i&gt;.&lt;i&gt;lname&lt;/i&gt;A T&lt;i&gt;kuleuven.be&lt;/i&gt; (Nele Mentens and Jo Vliegen)</author>
       <guid>https://kuleuven-diepenbeek.github.io/course_soc-lab/ch1_light/1_light/</guid>
-      <description>To get started you are going to build a hardware design that brings on the LEDs of the PYNQ Z2 board. The architecture is very simple and should look something link the image below.
+      <description>To get started you are going to build a hardware design that brings on the LEDs of the PYNQ Z2 board. The architecture is very simple and should look something like the image below.
 Describing the hardware For the computer to understand what you are building, a Hardware Description Language (HDL) is required. In this lab, this will be VHDL. The environment that you are going to use to make the design is Vivado.</description>
     </item>
     

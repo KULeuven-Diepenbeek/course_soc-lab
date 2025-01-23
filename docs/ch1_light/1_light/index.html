@@ -12,22 +12,22 @@
     <title>Let there be light :: System-on-Chip design and experimentation - labs</title>
 
     
-    <link href="../../css/nucleus.css?1709890048" rel="stylesheet">
-    <link href="../../css/fontawesome-all.min.css?1709890048" rel="stylesheet">
-    <link href="../../css/hybrid.css?1709890048" rel="stylesheet">
-    <link href="../../css/featherlight.min.css?1709890048" rel="stylesheet">
-    <link href="../../css/perfect-scrollbar.min.css?1709890048" rel="stylesheet">
-    <link href="../../css/auto-complete.css?1709890048" rel="stylesheet">
-    <link href="../../css/atom-one-dark-reasonable.css?1709890048" rel="stylesheet">
-    <link href="../../css/theme.css?1709890048" rel="stylesheet">
-    <link href="../../css/tabs.css?1709890048" rel="stylesheet">
-    <link href="../../css/hugo-theme.css?1709890048" rel="stylesheet">
+    <link href="../../css/nucleus.css?1737635173" rel="stylesheet">
+    <link href="../../css/fontawesome-all.min.css?1737635173" rel="stylesheet">
+    <link href="../../css/hybrid.css?1737635173" rel="stylesheet">
+    <link href="../../css/featherlight.min.css?1737635173" rel="stylesheet">
+    <link href="../../css/perfect-scrollbar.min.css?1737635173" rel="stylesheet">
+    <link href="../../css/auto-complete.css?1737635173" rel="stylesheet">
+    <link href="../../css/atom-one-dark-reasonable.css?1737635173" rel="stylesheet">
+    <link href="../../css/theme.css?1737635173" rel="stylesheet">
+    <link href="../../css/tabs.css?1737635173" rel="stylesheet">
+    <link href="../../css/hugo-theme.css?1737635173" rel="stylesheet">
     
-    <link href="../../css/theme-kul.css?1709890048" rel="stylesheet">
+    <link href="../../css/theme-kul.css?1737635173" rel="stylesheet">
     
     
 
-    <script src="../../js/jquery-3.3.1.min.js?1709890048"></script>
+    <script src="../../js/jquery-3.3.1.min.js?1737635173"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -83,14 +83,14 @@ window.MathJax = {
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="../../js/lunr.min.js?1709890048"></script>
-<script type="text/javascript" src="../../js/auto-complete.js?1709890048"></script>
+<script type="text/javascript" src="../../js/lunr.min.js?1737635173"></script>
+<script type="text/javascript" src="../../js/auto-complete.js?1737635173"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kuleuven-diepenbeek.github.io\/course_soc-lab\/";
     
 </script>
-<script type="text/javascript" src="../../js/search.js?1709890048"></script>
+<script type="text/javascript" src="../../js/search.js?1737635173"></script>
 
     
   </div>
@@ -643,7 +643,7 @@ window.MathJax = {
 
 
 
-<p>To get started you are going to build a hardware design that brings on the LEDs of the <span style="color: #D0556A; font-weight: bold">PYNQ Z2</span> board. The architecture is very simple and should look something link the image below.</p>
+<p>To get started you are going to build a hardware design that brings on the LEDs of the <span style="color: #D0556A; font-weight: bold">PYNQ Z2</span> board. The architecture is very simple and should look something like the image below.</p>
 
 <h2 id="describing-the-hardware">Describing the hardware</h2>
 
@@ -673,7 +673,7 @@ window.MathJax = {
 
 <h2 id="example-project">Example project</h2>
 
-<p>Let us start with a very simple example project. These <span style="color: #D0556A; font-weight: bold">PYNQ Z2</span> boards have LEDs and pushbuttons. We want to use a push button to turn on the LED. One thing is that we want to do this <strong>Synchronusly</strong>. This means that LED lights up if the pushbutton is pressed and a rising edge of a clock comes in. It turns back off when the pushbutton is not pressed and there is again a rising edge. In practice we will not see this delay, because our clock is 125MHz.</p>
+<p>Let us start with a very simple example project. These <span style="color: #D0556A; font-weight: bold">PYNQ Z2</span> boards have LEDs and pushbuttons. We want to use a push button to turn on the LED. One thing is that we want to do this <strong>Synchronously</strong>. This means that LED lights up if the pushbutton is pressed and a rising edge of a clock comes in. It turns back off when the pushbutton is not pressed and there is again a rising edge. In practice we will not see this delay, because our clock is 125MHz.</p>
 
 <figure><img src="../../img/ch1/First_demo.png"/><figcaption>
             <h4>Schematic of example project</h4>
@@ -711,7 +711,7 @@ window.MathJax = {
 
 <p>Once you <em>described</em> your design in VHDL the FPGA toolchain can run <strong>synthesis</strong>. During this part a <em>netlist</em> is generated of your design. The netlist is one input for the next step.</p>
 
-<p>The second part that is required is a &ldquo;how-do-I-map-this-to-the-outside-world&rdquo; file. Your netlist has toplevel ports (inputs and outputs). For FPGA design with Xilinx tools, the mapping of these ports to physical pins is done through a <strong>constraint</strong> file. The extension of these files is: <strong>.xdc</strong> (Xilinx Design Constraint). Another important aspect that is covert by the xdc-file is constraints on timing. An example is shown below.</p>
+<p>The second part that is required is a &ldquo;how-do-I-map-this-to-the-outside-world&rdquo; file. Your netlist has toplevel ports (inputs and outputs). For FPGA design with Xilinx tools, the mapping of these ports to physical pins is done through a <strong>constraint</strong> file. The extension of these files is: <strong>.xdc</strong> (Xilinx Design Constraint). Another important aspect that is covered by the xdc-file is constraints on timing. An example is shown below.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-tcl" data-lang="tcl">set_property <span style="color:#f92672">-</span>dict <span style="color:#66d9ef">{</span> PACKAGE_PIN H16   IOSTANDARD LVCMOS33 <span style="color:#66d9ef">}</span> <span style="color:#66d9ef">[</span>get_ports <span style="color:#66d9ef">{</span> clock <span style="color:#66d9ef">}];</span> <span style="color:#75715e">#IO_L13P_T2_MRCC_35 Sch=sysclk
 </span><span style="color:#75715e"></span>create_clock <span style="color:#f92672">-</span>add <span style="color:#f92672">-</span>name sys_clk_pin <span style="color:#f92672">-</span>period <span style="color:#ae81ff">8.00</span> <span style="color:#f92672">-</span>waveform <span style="color:#66d9ef">{</span>0 <span style="color:#ae81ff">4</span><span style="color:#66d9ef">}</span> <span style="color:#66d9ef">[</span>get_ports <span style="color:#66d9ef">{</span> clock<span style="color:#66d9ef">}];</span>
 
@@ -765,7 +765,7 @@ If you group 1024 bits, this is called a <strong>kibibit</strong>. Yes !! That i
 
 <h4 id="exercise-3">Exercise 3</h4>
 
-<p>Now we are going to use the pushbuttons to turn on the LEDs. If you press a pushbutton the corresponding LED needs to be toggle. If it is off it needs to turn on until the pushbutton is pressed again. You need to detect the <strong>rising</strong> edge of the pushbutton input.</p>
+<p>Now we are going to use the pushbuttons to turn on the LEDs. If you press a pushbutton the corresponding LED needs to be toggled. If it is off it needs to turn on until the pushbutton is pressed again. You need to detect the <strong>rising</strong> edge of the pushbutton input.</p>
 
 <div style="width:49%">
 
@@ -1113,19 +1113,19 @@ If you group 1024 bits, this is called a <strong>kibibit</strong>. Yes !! That i
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../../js/clipboard.min.js?1709890048"></script>
-    <script src="../../js/perfect-scrollbar.min.js?1709890048"></script>
-    <script src="../../js/perfect-scrollbar.jquery.min.js?1709890048"></script>
-    <script src="../../js/jquery.sticky.js?1709890048"></script>
-    <script src="../../js/featherlight.min.js?1709890048"></script>
-    <script src="../../js/highlight.pack.js?1709890048"></script>
+    <script src="../../js/clipboard.min.js?1737635173"></script>
+    <script src="../../js/perfect-scrollbar.min.js?1737635173"></script>
+    <script src="../../js/perfect-scrollbar.jquery.min.js?1737635173"></script>
+    <script src="../../js/jquery.sticky.js?1737635173"></script>
+    <script src="../../js/featherlight.min.js?1737635173"></script>
+    <script src="../../js/highlight.pack.js?1737635173"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../../js/modernizr.custom-3.6.0.js?1709890048"></script>
-    <script src="../../js/learn.js?1709890048"></script>
-    <script src="../../js/hugo-learn.js?1709890048"></script>
+    <script src="../../js/modernizr.custom-3.6.0.js?1737635173"></script>
+    <script src="../../js/learn.js?1737635173"></script>
+    <script src="../../js/hugo-learn.js?1737635173"></script>
     
         
-            <script src="../../mermaid/mermaid.js?1709890048"></script>
+            <script src="../../mermaid/mermaid.js?1737635173"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
