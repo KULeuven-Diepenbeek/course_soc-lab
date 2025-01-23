@@ -65,7 +65,7 @@ set_property -dict { PACKAGE_PIN M15   IOSTANDARD LVCMOS33 } [get_ports { RGB1_r
   </div>
   <div class="column">
     <h4>Exercise 7</h4>
-    <p>For this exercise you will have to make a hardware design that drives one of the RGB LEDs. <b>Twelve</b> colours should be shown in a loop: the 3 primary colourss, the 3 secondary colours and the six colours in between.</p>
+    <p>For this exercise you will have to make a hardware design that drives one of the RGB LEDs. <b>Twelve</b> colours should be shown in a loop: the 3 primary colours, the 3 secondary colours and the six colours in between.</p>
     {{< youtube id="G31GVS1kCPo?rel=0" >}}
   </div>
 </div>

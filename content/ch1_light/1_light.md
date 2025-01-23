@@ -5,7 +5,7 @@ weight: 11
 ---
 
 
-To get started you are going to build a hardware design that brings on the LEDs of the {{% pynq %}} board. The architecture is very simple and should look something link the image below.
+To get started you are going to build a hardware design that brings on the LEDs of the {{% pynq %}} board. The architecture is very simple and should look something like the image below.
 
 ## Describing the hardware
 For the computer to understand what you are building, a Hardware Description Language (**HDL**) is required. In this lab, this will be **VHDL**. The environment that you are going to use to make the design is **Vivado**. This software suite, made available by **Xilinx** (the FPGA vendor), can be used for multiple purposes:
@@ -28,7 +28,7 @@ Know that during the installation the **only devices** you will need for this la
 Vivado is *board aware*. Alas, the {{% pynq %}} board is not by default known by the software. Additional metadata is to be added to your Xilinx Installation. To do this you need to download the board files from [here](https://www.tulembedded.com/FPGA/ProductsPYNQ-Z2.html). Later we also require the "Master XDC" file. You need to extract the board files archive in "<Xilinx installation directory>\Vivado\<version>\data\boards\board_files", if the directory doesn't exist you need to create it. After extracting you should have a folder called pynq-z2 inside the board_files directory. For old Vivado versions you can follow the instructions [here](https://pynq.readthedocs.io/en/v2.5.1/overlay_design_methodology/board_settings.html?highlight=board#vivado-board-files). Note that the download links are dead.
 
 ## Example project
-Let us start with a very simple example project. These {{% pynq %}} boards have LEDs and pushbuttons. We want to use a push button to turn on the LED. One thing is that we want to do this **Synchronusly**. This means that LED lights up if the pushbutton is pressed and a rising edge of a clock comes in. It turns back off when the pushbutton is not pressed and there is again a rising edge. In practice we will not see this delay, because our clock is 125MHz.
+Let us start with a very simple example project. These {{% pynq %}} boards have LEDs and pushbuttons. We want to use a push button to turn on the LED. One thing is that we want to do this **Synchronously**. This means that LED lights up if the pushbutton is pressed and a rising edge of a clock comes in. It turns back off when the pushbutton is not pressed and there is again a rising edge. In practice we will not see this delay, because our clock is 125MHz.
 
 {{% figure src="/img/ch1/First_demo.png" title="Schematic of example project" %}}
 
@@ -66,7 +66,7 @@ The example above is very simple. The design holds nothing more that a 1-bit reg
 
 Once you *described* your design in VHDL the FPGA toolchain can run **synthesis**. During this part a *netlist* is generated of your design. The netlist is one input for the next step.
 
-The second part that is required is a "how-do-I-map-this-to-the-outside-world" file. Your netlist has toplevel ports (inputs and outputs). For FPGA design with Xilinx tools, the mapping of these ports to physical pins is done through a **constraint** file. The extension of these files is: **.xdc** (Xilinx Design Constraint). Another important aspect that is covert by the xdc-file is constraints on timing. An example is shown below.
+The second part that is required is a "how-do-I-map-this-to-the-outside-world" file. Your netlist has toplevel ports (inputs and outputs). For FPGA design with Xilinx tools, the mapping of these ports to physical pins is done through a **constraint** file. The extension of these files is: **.xdc** (Xilinx Design Constraint). Another important aspect that is covered by the xdc-file is constraints on timing. An example is shown below.
 
 ```tcl
 set_property -dict { PACKAGE_PIN H16   IOSTANDARD LVCMOS33 } [get_ports { clock }]; #IO_L13P_T2_MRCC_35 Sch=sysclk
@@ -112,7 +112,7 @@ The result should look something like this:
 
 #### Exercise 3
 
-Now we are going to use the pushbuttons to turn on the LEDs. If you press a pushbutton the corresponding LED needs to be toggle. If it is off it needs to turn on until the pushbutton is pressed again. You need to detect the **rising** edge of the pushbutton input.
+Now we are going to use the pushbuttons to turn on the LEDs. If you press a pushbutton the corresponding LED needs to be toggled. If it is off it needs to turn on until the pushbutton is pressed again. You need to detect the **rising** edge of the pushbutton input.
  
 <div style="width:49%">
 {{< youtube id="nBQ-mKoYKKQ?rel=0" >}}

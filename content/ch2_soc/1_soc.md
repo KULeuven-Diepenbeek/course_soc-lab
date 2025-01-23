@@ -44,7 +44,7 @@ From the naming of this middle block you can tell: 1) it is a child of xmas_ligh
 
 Your IP component will be reachable by the processor through an address. This is called **Memory-Mapped IO (MMIO)**. The interface that is generated already provides a number of **slave register** in xmas_light_v1_0_S00_AXI. When the processor read from (or writes to) a certain address, these operations actually target these registers. It is up to you (the designer) **how** you will wire up these registers to your design.
 
-For example: the 32-bit slave register 0 will be connected to the **command** input. The LSB of slave register 1 will be connected to thte **command valid**.
+For example: the 32-bit slave register 0 will be connected to the **command** input. The LSB of slave register 1 will be connected to the **command valid**.
 
 <!--
 {{< youtube id="B-F_jVeAcfs?rel=0" >}}
