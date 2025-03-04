@@ -52,3 +52,24 @@ clean:
 ```
 
 You can read more on <a href="https://support.xilinx.com/s/article/75527?language=en_US"> https://support.xilinx.com/s/article/75527?language=en_US </a>
+
+## My Vitis doesn't work!
+
+If you run Vitis 2024.2 on windows the buttons do not do anything by default
+
+You can rename the vitis_hls name to fix this. We will not be doing HLS in this lab.
+
+When Vitis is installed in the default directory:
+
+C:\Xilinx\Vitis\2024.2: **Rename** .vitis_for_hls to .vitis_for_hls_XXXX
+
+source: <a href="https://adaptivesupport.amd.com/s/question/0D54U00008sdgh7SAA/there-is-no-response-when-trying-to-create-platform-component-in-vitis-unified-ide-20242?language=en_US"> https://adaptivesupport.amd.com/s/question/0D54U00008sdgh7SAA/there-is-no-response-when-trying-to-create-platform-component-in-vitis-unified-ide-20242?language=en_US </a>
+
+
+## My vitis keeps closing when I do CTRL+Z
+
+Some of you might notice that Vitis closes when you do CTRL+Z on an AZERTY keyboard. This is because Vitis tries to be nice and maps your CTRL+Z to CTRL+W, CTRL+W is close window. To fix this ~~you buy a qwerty keyboard~~ you can change the settings.
+
+File > Preferences > Open Settings (UI): Change keycode to code for Keyboard
+
+{{% figure src="/img/faq/vitis_keyboard.png" title="Vitis keyboard fix" %}}
