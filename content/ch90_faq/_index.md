@@ -9,6 +9,17 @@ draft: false
 
 Go Tools in the top bar -> settings -> target language -> VHDL
 
+## I updated my XSA, but it still doesn't work
+
+Vitis versions newer then 2023.2 do not update the bitstream when you swap an xsa file.
+<a href="https://adaptivesupport.amd.com/s/article/000036644?language=en_US"> https://adaptivesupport.amd.com/s/article/000036644?language=en_US
+
+A workaround would be to export the bitstream file in Vivado and change the bitstream file path in Vitis.
+In Vivado you can do file->export->export bitstream file.
+Then in Vitis you can go to your application project press the gear icon next to run.
+In that menu you can change the bitstream file, update it to the one you generated with Vivado.
+
+
 ## Vitis makefile error
 
 This is a makefile error issue specifically to Vivado 2020.1 or newer on a windows system. There are multiple options to solve this issue. The easiest one is to use a different Vivado/Vitis option, but that takes a lot of time to reinstall.
