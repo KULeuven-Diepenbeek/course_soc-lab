@@ -22,7 +22,7 @@ Although this protocol, in its entirety, provides quite some features; the main 
 * only single-master, single-slave
 * only the original speed is used: 100 kbit/s
 * only one direction of communication: from master to slave
-* no direct use of addressing (although it will be present indirectly)
+* no addressing
 
 The protocol is shown in the image below.
 
