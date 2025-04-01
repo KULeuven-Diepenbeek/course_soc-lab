@@ -13,7 +13,7 @@ The code you need to create as that it keeps listening for a message, if it rece
 
 {{% figure src="/img/ch_project/evaluation_message.png" title="Example evaluation messsage" %}}
 
-The goal is that during evaluation your board receives a message, executes the command on the xmas lights and send the same command back. During evuluation I will monitor if the command that is received is the same that is send and that the board does the right function.
+The goal is that during evaluation your board receives a message, executes the command on the xmas lights and send the same command back. During evaluation I will monitor if the command that is received is the same that is send and that the board does the right function.
 
 ### What if project is not complete?
 
