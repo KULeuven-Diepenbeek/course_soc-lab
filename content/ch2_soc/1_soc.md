@@ -78,9 +78,12 @@ You start by pressing next and in the next box you say "Create a new AXI4 periph
 In the details you give it a name and you can also give it a description.
 
 {{% notice note %}}
-Do not forget to change the **IP Location** or at note down where it is saved!
+Do not forget to change the **IP Location** or note down where it is saved!
 {{% /notice %}}
 
+{{% notice note %}}
+For Vivado versions newer then **2024.1** make sure that the name is **different** from xmas_light. This can be done by adding *_ip* to the name.
+{{% /notice %}}
 
 {{% figure src="/img/ch2/peripheral_details.png" title="Peripheral details" %}}
 
