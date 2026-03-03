@@ -71,7 +71,7 @@ The commands are explained above. A few example are given here.
 * When the {{% pynq %}} receives the command **0x0000471C**, this selects the Blue led from RGB LED 0 and it turns it on with a (roughly)
  50% duty cycle. **Additionally** is has the left most LED oscillate at 1 Hz.
 
-As you can see from the examples above, the commands can have one single effect, or can have multiple effects. This allows us configure the lights more finely grained. If you would want to recreate exercise 4, you would have to send four commands: **0x1C**, **0x2D**, **0x4E**, **0x8F**. 
+As you can see from the examples above, the commands can have one single effect, or can have multiple effects. This allows us configure the lights more finely grained. If you would want to recreate exercise 5, you would have to send four commands: **0x1C**, **0x2D**, **0x4E**, **0x8F**. 
 
 {{% notice note %}}
 It is useful to **keep a copy** of the configuration for each *target*. Otherwise every command would overwrite the previous command. Off course it is not required to keep the complete configuration for each target. Only the relevant information needs to be **memorised**.
