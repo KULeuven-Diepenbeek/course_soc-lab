@@ -26,8 +26,8 @@ Although this protocol, in its entirety, provides quite some features; the main 
 
 The protocol is shown in the image below.
 
-{{% figure src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/I2C_data_transfer.svg/600px-I2C_data_transfer.svg.png" title="Example of data transfer in I2C" %}}
-{{% source src="wikipedia.org" url="https://en.wikipedia.org/wiki/I%C2%B2C#Timing_diagram" %}}
+{{% figure src="/img/ch3/I2C_data_transfer.png" title="Example of data transfer in I2C" %}}
+{{% source src="wikipedia.org" url="https://nl.wikipedia.org/wiki/I%C2%B2C-bus#/media/Bestand:I2C_data_transfer.svg" %}}
 
 There are only two wires: a **data** wire and a **clock** wire, **sda** and **scl** respectively. When there is no activity, both signals are logical '1'. There is a start condition prior to data communication which is a falling edge of sda while scl is high. There is a stop condition after communication which is a rising edge of sda while scl is high.
 
